@@ -11,14 +11,19 @@
     "url": "https://github.com/pushrocks/beautylog.git"
   },
   "keywords": [
-    "json",
-    "jade",
-    "template"
+    "log",
+    "color",
+    "console",
+    "beautiful"
   ],
   "author": "Smart Coordination GmbH <office@push.rocks> (https://push.rocks)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pushrocks/beautylog/issues"
   },
-  "homepage": "https://github.com/pushrocks/beautylog"
+  "homepage": "https://github.com/pushrocks/beautylog",
+  "dependencies": {
+    "through2": "~2.0.0",
+    "colors": "~1.1.2"
+  }
 }

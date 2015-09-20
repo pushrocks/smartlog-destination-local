@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: npm@smart-coordination.com
+  api_key:
+    secure: S47eRu6ZdNqKq+g3/fHHqODr+9agOk+rqaJ7i25Es8lZCFsAP4KpHbqLuKKC/mhCxKZ/ToWWWO8N03DkeOIgolpOzl1phfYECzI/Pkt7g0LLn1RIt+d+4U8XgBdqVkEsWHidKXj31Tgzp0Km1z2pNsJburI72hcdoHryXayGUNbpw8gHAUKiBha7wRz8dqC1msNWCkBxkwPcYZdVlnAIuAhX5OeFKpn0NNKJn8Ip9XizGfo/gulYdRxt2KtOpM22rAvD9RdU5PhWKPlb2+oVYV/K3IZx3KYE8lnLSrrQm9dCLuUCGKNs010HfFX5x9zwZNALzMhzW+KduHIXrghXBuVbTYxbDAE2QC/XoBcrza5p2E8mZyAGsFnWDCQhDHPiQB0rBJQqwITsKcvu73H5axxcD8KsxVX5hUStUEPSLz9tDLdA85/1nXuvzm6X6k2HD4f9jqA8KmOCiWBGkDe4CSMC1Qigt2E6thm1i82rMIkD67AvBP/NsU6xQaZHYm0Ol5Wc0oakYRvLaLZ+6+VaZiFt9tXz4wxTUkHbYI8OwXq5e1sASkWZcpAVCYK4amGBno+Q2M4qRMiofd4ewlF5G3eyzWF1q5YadArds92nGvWdj+tuymfo6zC2hWSKVN3pkshT8bcUyLRsqwQCDXJ5CDVvXiVQE18FpVEbUCyixig=
+  on:
+    tags: true
+    repo: pushrocks/beautylog

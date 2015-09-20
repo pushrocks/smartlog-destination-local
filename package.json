@@ -1,0 +1,24 @@
+{
+  "name": "beautylog",
+  "version": "0.0.3",
+  "description": "beautiful logging",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd ts/compile && gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushrocks/beautylog.git"
+  },
+  "keywords": [
+    "json",
+    "jade",
+    "template"
+  ],
+  "author": "Smart Coordination GmbH <office@push.rocks> (https://push.rocks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pushrocks/beautylog/issues"
+  },
+  "homepage": "https://github.com/pushrocks/beautylog"
+}

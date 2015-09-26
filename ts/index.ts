@@ -1,4 +1,4 @@
-/// <reference path="typings/tsd.d.ts" />
+/// <reference path="./typings/tsd.d.ts" />
 var colors = require("colors");
 var through = require("through2");
 
@@ -26,10 +26,16 @@ bl.log = (logText:string = 'empty log',logType:string = 'normal') => {
         switch (logType) {
             case 'normal':
                 logText.cyan.bold;
+                break;
             case 'error':
                 logText = localBl.errorPrefix + logText.red.bold;
+                break;
             case 'success':
                 logText = localBl.successPrefix + logText.cyan.bold;
+                break;
+            default:
+                logText.blue.bold;
+                console.log(('unknown logType for "' + logText + '"').red.bold);
         }
         console.log(logText);
         return true;

@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/pushrocks/beautylog",
   "dependencies": {
-    "beautylog": "latest"
+    "colors": "latest"
   }
 }

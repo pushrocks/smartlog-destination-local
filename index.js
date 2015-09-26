@@ -1,6 +1,5 @@
 /// <reference path="./typings/tsd.d.ts" />
 var colors = require("colors");
-var through = require("through2");
 var bl;
 bl = {};
 /**
@@ -9,8 +8,9 @@ bl = {};
  */
 var localBl;
 localBl = {};
-localBl.errorPrefix = ' Error: '.bgRed.white.bold;
-localBl.successPrefix = ' Success: '.bgGreen.white.bold;
+localBl.normalPrefix = ' Log: '.bgCyan.white.bold + ' ';
+localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
+localBl.successPrefix = ' Success: '.bgGreen.white.bold + ' ';
 /**
  *
  * @param logText
@@ -23,13 +23,13 @@ bl.log = function (logText, logType) {
     try {
         switch (logType) {
             case 'normal':
-                logText.cyan.bold;
+                logText = localBl.normalPrefix + logText.cyan.bold;
                 break;
             case 'error':
                 logText = localBl.errorPrefix + logText.red.bold;
                 break;
             case 'success':
-                logText = localBl.successPrefix + logText.cyan.bold;
+                logText = localBl.successPrefix + logText.green.bold;
                 break;
             default:
                 logText.blue.bold;

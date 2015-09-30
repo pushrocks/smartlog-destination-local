@@ -18,3 +18,5 @@ bl.log('some log message','normal');
 bl.log('some success message','success');
 bl.log('some error message','error');
 ```
+The plugin produces beautyful output like this:
+![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)

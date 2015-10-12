@@ -40,13 +40,13 @@ bl.log = function (logText, logType) {
                 logText = localBl.normalPrefix + logText.cyan.bold;
                 break;
             case 'ok':
-                logText = localBl.okPrefix + logText.italic;
+                logText = localBl.okPrefix + logText.bold;
                 break;
             case 'success':
                 logText = localBl.successPrefix + logText.green.bold;
                 break;
             case 'warn':
-                logText = localBl.warnPrefix + logText.italic;
+                logText = localBl.warnPrefix + logText.bold;
                 break;
             default:
                 logText.blue.bold;

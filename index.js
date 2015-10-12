@@ -1,5 +1,6 @@
 /// <reference path="./typings/tsd.d.ts" />
 var colors = require("colors");
+var clc = require("cli-color");
 var bl;
 bl = {};
 /**
@@ -8,7 +9,9 @@ bl = {};
  */
 var localBl;
 localBl = {};
+localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
 localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
+localBl.infoPrefix = clc.bgXterm(198).xterm(231).bold(' INFO ') + ' ';
 localBl.normalPrefix = ' Log: '.bgCyan.white.bold + ' ';
 localBl.okPrefix = ' '.bgGreen + ' OK! '.bgBlack.green.bold + ' ';
 localBl.successPrefix = ' Success: '.bgGreen.white.bold + ' ';
@@ -24,8 +27,14 @@ bl.log = function (logText, logType) {
     if (logType === void 0) { logType = 'normal'; }
     try {
         switch (logType) {
+            case 'dir':
+                logText = localBl.dirPrefix + clc.xterm(26)(logText);
+                break;
             case 'error':
                 logText = localBl.errorPrefix + logText.red.bold;
+                break;
+            case 'info':
+                logText = localBl.infoPrefix + clc.xterm(198)(logText);
                 break;
             case 'normal':
                 logText = localBl.normalPrefix + logText.cyan.bold;
@@ -52,12 +61,28 @@ bl.log = function (logText, logType) {
     }
 };
 /**
+ * logs an directory to console
+ * @param logText
+ * @returns {boolean}
+ */
+bl.dir = function (logText) {
+    return bl.log(logText, 'dir');
+};
+/**
  * logs an error to console
  * @param logText
  * @returns {boolean}
  */
 bl.error = function (logText) {
     return bl.log(logText, 'error');
+};
+/**
+ * logs an info to console
+ * @param logText
+ * @returns {boolean}
+ */
+bl.info = function (logText) {
+    return bl.log(logText, 'info');
 };
 /**
  * logs an 'OK!' message to console

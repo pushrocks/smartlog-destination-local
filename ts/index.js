@@ -84,3 +84,4 @@ bl.warn = function (logText) {
     return bl.log(logText, 'warn');
 };
 module.exports = bl;
+//# sourceMappingURL=index.js.map

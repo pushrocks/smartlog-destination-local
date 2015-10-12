@@ -11,9 +11,11 @@ bl = {}
  */
 var localBl:any;
 localBl = {};
-localBl.normalPrefix = ' Log: '.bgCyan.white.bold  + ' ';
 localBl.errorPrefix = ' Error: '.bgRed.white.bold  + ' ';
+localBl.normalPrefix = ' Log: '.bgCyan.white.bold  + ' ';
+localBl.okPrefix = ' '.bgGreen + ' OK! '.bgBlack.green.bold  + ' ';
 localBl.successPrefix = ' Success: '.bgGreen.white.bold  + ' ';
+localBl.warnPrefix = ' '.bgYellow + ' Warn: '.bgBlack.yellow.bold  + ' ';
 
 /**
  *
@@ -24,14 +26,20 @@ localBl.successPrefix = ' Success: '.bgGreen.white.bold  + ' ';
 bl.log = (logText:string = 'empty log',logType:string = 'normal') => {
     try {
         switch (logType) {
-            case 'normal':
-                logText = localBl.normalPrefix + logText.cyan.bold;
-                break;
             case 'error':
                 logText = localBl.errorPrefix + logText.red.bold;
                 break;
+            case 'normal':
+                logText = localBl.normalPrefix + logText.cyan.bold;
+                break;
+            case 'ok':
+                logText = localBl.okPrefix + logText.italic;
+                break;
             case 'success':
                 logText = localBl.successPrefix + logText.green.bold;
+                break;
+            case 'warn':
+                logText = localBl.warnPrefix + logText.italic;
                 break;
             default:
                 logText.blue.bold;
@@ -57,12 +65,30 @@ bl.error = function(logText) {
 };
 
 /**
+ * logs an 'OK!' message to console
+ * @param logText
+ * @returns {boolean}
+ */
+bl.ok = function(logText) {
+    return bl.log(logText, 'ok');
+};
+
+/**
  * logs a success to console
  * @param logText string to log as error
  * @returns {boolean}
  */
 bl.success = function(logText) {
     return bl.log(logText, 'success');
+}
+
+/**
+ * logs a 'warn:' message to console
+ * @param logText string to log as error
+ * @returns {boolean}
+ */
+bl.warn = function(logText) {
+    return bl.log(logText, 'warn');
 }
 
 module.exports = bl;

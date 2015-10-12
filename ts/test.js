@@ -17,3 +17,4 @@ beautyLog.log('beautylog.log(), with normal logText, with logType "success"', 's
 beautyLog.log('beautylog.log(), with normal logText, with logType "warn"', 'warn');
 console.log('');
 console.log('*** end test ***');
+//# sourceMappingURL=test.js.map

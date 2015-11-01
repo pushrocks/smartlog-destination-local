@@ -114,47 +114,4 @@ var BeautylogOS;
     }
     BeautylogOS.init = init;
 })(BeautylogOS || (BeautylogOS = {}));
-/// <reference path="./index.ts" />
-var BeautylogBrowser;
-(function (BeautylogBrowser) {
-    function init() {
-        var beautylogBrowser = {};
-        return beautylogBrowser;
-        beautylogBrowser.log = function (message) {
-            console.log('%c Log: %c ' + message, "background:#42A5F5;color:#ffffff", "color:#42A5F5;");
-        };
-        beautylogBrowser.info = function (message) {
-            console.log('%c Info: %c ' + message, 'background:#EC407A;color:#ffffff;', 'color:#EC407A;');
-        };
-        beautylogBrowser.ok = function (message) {
-            console.log('%c OK: %c ' + message, "background:#000000;color:#8BC34A;", "color:#000000;");
-        };
-        beautylogBrowser.success = function (message) {
-            console.log('%c Success: %c ' + message, "background:#8BC34A;color:#ffffff;", "color:#8BC34A;");
-        };
-        beautylogBrowser.warn = function (message) {
-            console.log('%c Warn: %c ' + message, "background:#000000;color:#FB8C00;", "color:#000000;");
-        };
-    }
-    BeautylogBrowser.init = init;
-})(BeautylogBrowser || (BeautylogBrowser = {}));
-/// <reference path="./typings/tsd.d.ts" />
-/// <reference path="./console.os.ts" />
-/// <reference path="./console.browser.ts" />
-var beautylog = function (logPlatform) {
-    if (logPlatform === void 0) { logPlatform = "os"; }
-    switch (logPlatform) {
-        case "os":
-            var beautylogOs = BeautylogOS.init();
-            return beautylogOs;
-            break;
-        case "browser":
-            var beautylogBrowser = BeautylogBrowser.init();
-            return beautylogBrowser;
-            break;
-        default:
-            console.log("something is strage about the way you required beautylog");
-            break;
-    }
-};
-module.exports = beautylog;
+//# sourceMappingURL=console.os.js.map

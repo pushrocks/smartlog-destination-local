@@ -119,7 +119,6 @@ var BeautylogBrowser;
 (function (BeautylogBrowser) {
     function init() {
         var beautylogBrowser = {};
-        return beautylogBrowser;
         beautylogBrowser.log = function (message) {
             console.log('%c Log: %c ' + message, "background:#42A5F5;color:#ffffff", "color:#42A5F5;");
         };
@@ -135,6 +134,7 @@ var BeautylogBrowser;
         beautylogBrowser.warn = function (message) {
             console.log('%c Warn: %c ' + message, "background:#000000;color:#FB8C00;", "color:#000000;");
         };
+        return beautylogBrowser;
     }
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));

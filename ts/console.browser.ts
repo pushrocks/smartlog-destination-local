@@ -2,7 +2,6 @@
 module BeautylogBrowser {
     export function init() {
         var beautylogBrowser:any = {};
-        return beautylogBrowser;
         beautylogBrowser.log = function(message){
             console.log('%c Log: %c ' + message,"background:#42A5F5;color:#ffffff","color:#42A5F5;");
         };
@@ -18,5 +17,6 @@ module BeautylogBrowser {
         beautylogBrowser.warn = function(message){
             console.log('%c Warn: %c ' + message,"background:#000000;color:#FB8C00;","color:#000000;");
         };
+        return beautylogBrowser;
     }
 }

@@ -22,3 +22,5 @@ beautyLogOs.log('beautylog.log(), with normal logText, with logType "success"', 
 beautyLogOs.log('beautylog.log(), with normal logText, with logType "warn"', 'warn');
 console.log('');
 console.log('*** end test ***');
+console.log("start test of beautylog browser module (Might look weird in is console...)");
+beautyLogBrowser.log("hello");

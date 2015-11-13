@@ -1,6 +1,7 @@
 /// <reference path="./typings/tsd.d.ts" />
-/// <reference path="./console.os.ts" />
-/// <reference path="./console.browser.ts" />
+/// <reference path="./beautylog.classes.ts" />
+/// <reference path="./beautylog.os.ts" />
+/// <reference path="./beautylog.browser.ts" />
 
 var beautylog = function(logPlatform:string = "os") {
     switch (logPlatform) {

@@ -22,4 +22,4 @@ var BeautylogBrowser;
     }
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));
-//# sourceMappingURL=console.browser.js.map
+//# sourceMappingURL=beautylog.browser.js.map

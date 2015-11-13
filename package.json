@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/pushrocks/beautylog",
   "dependencies": {
-    "cli-color": "^1.0.0",
+    "cli-color": "^1.1.0",
     "colors": "1.1.2"
   }
 }

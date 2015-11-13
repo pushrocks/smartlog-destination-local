@@ -1,15 +1,15 @@
 /// <reference path="./index.ts" />
-module BeautylogOS {
-    export function init() {
+var BeautylogOS;
+(function (BeautylogOS) {
+    function init() {
         var colors = require("colors");
         var clc = require("cli-color");
-
-        var beautylogOS:any = {};
+        var beautylogOS = {};
         /**
          * object to append to all locally used params
          * @type {{}}
          */
-        var localBl:any;
+        var localBl;
         localBl = {};
         localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
         localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
@@ -18,14 +18,15 @@ module BeautylogOS {
         localBl.okPrefix = ' '.bgGreen + ' OK! '.bgBlack.green.bold + ' ';
         localBl.successPrefix = ' Success: '.bgGreen.white.bold + ' ';
         localBl.warnPrefix = ' '.bgYellow + ' Warn: '.bgBlack.yellow.bold + ' ';
-
         /**
          *
          * @param logText
          * @param logType
          * @returns {boolean}
          */
-        beautylogOS.log = (logText:string = 'empty log', logType:string = 'normal') => {
+        beautylogOS.log = function (logText, logType) {
+            if (logText === void 0) { logText = 'empty log'; }
+            if (logType === void 0) { logType = 'normal'; }
             try {
                 switch (logType) {
                     case 'dir':
@@ -61,64 +62,56 @@ module BeautylogOS {
                 return false;
             }
         };
-
-
-
         /**
          * logs an directory to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.dir = function(logText) {
+        beautylogOS.dir = function (logText) {
             return beautylogOS.log(logText, 'dir');
         };
-
-
         /**
          * logs an error to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.error = function(logText) {
+        beautylogOS.error = function (logText) {
             return beautylogOS.log(logText, 'error');
         };
-
         /**
          * logs an info to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.info = function(logText) {
+        beautylogOS.info = function (logText) {
             return beautylogOS.log(logText, 'info');
         };
-
         /**
          * logs an 'OK!' message to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.ok = function(logText) {
+        beautylogOS.ok = function (logText) {
             return beautylogOS.log(logText, 'ok');
         };
-
         /**
          * logs a success to console
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.success = function(logText) {
+        beautylogOS.success = function (logText) {
             return beautylogOS.log(logText, 'success');
-        }
-
+        };
         /**
          * logs a 'warn:' message to console
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.warn = function(logText) {
+        beautylogOS.warn = function (logText) {
             return beautylogOS.log(logText, 'warn');
-        }
-
+        };
         return beautylogOS;
     }
-}
+    BeautylogOS.init = init;
+})(BeautylogOS || (BeautylogOS = {}));
+//# sourceMappingURL=beautylog.os.js.map

@@ -1,6 +1,7 @@
 /// <reference path="./typings/tsd.d.ts" />
 /// <reference path="./beautylog.classes.ts" />
 /// <reference path="./beautylog.os.ts" />
+/// <reference path="./beautylog.os.table.ts" />
 /// <reference path="./beautylog.browser.ts" />
 var beautylog = function (logPlatform) {
     if (logPlatform === void 0) { logPlatform = "os"; }

@@ -1,15 +1,46 @@
 /// <reference path="./index.ts" />
+var ConsoleTable = (function () {
+    function ConsoleTable(tableType) {
+        switch (tableType) {
+            case "checks":
+                this.tableHead = ['Check Item:'.cyan, 'Status:'.cyan];
+                break;
+            default:
+                break;
+        }
+        this.rows = [];
+        this.type = tableType;
+    }
+    ConsoleTable.prototype.push = function (row) {
+        this.rows.push(row);
+    };
+    ConsoleTable.prototype.print = function () {
+        var table = new BeautylogOsTable.cliTable({
+            head: this.tableHead,
+            colWidths: [20, 20]
+        });
+        for (var row in this.rows) {
+            if (this.rows[row][1] == "success") {
+                this.rows[row][1] = ' '.bgGreen + ' ' + this.rows[row][1];
+            }
+            else if (this.rows[row][1] == "error") {
+                this.rows[row][1] = ' '.bgRed + ' ' + this.rows[row][1];
+            }
+            table.push(this.rows[row]);
+        }
+        ;
+        console.log(table.toString());
+    };
+    return ConsoleTable;
+})();
+/// <reference path="./index.ts" />
 var BeautylogOS;
 (function (BeautylogOS) {
     function init() {
         var colors = require("colors");
         var clc = require("cli-color");
-        var beautylogOS = {};
-        /**
-         * object to append to all locally used params
-         * @type {{}}
-         */
-        var localBl;
+        var beautylogOS = {}; //object to append to all public facing functions
+        var localBl; // object to append to all private params and functions
         localBl = {};
         localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
         localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
@@ -110,10 +141,25 @@ var BeautylogOS;
         beautylogOS.warn = function (logText) {
             return beautylogOS.log(logText, 'warn');
         };
+        beautylogOS.table = BeautylogOsTable.init();
         return beautylogOS;
     }
     BeautylogOS.init = init;
 })(BeautylogOS || (BeautylogOS = {}));
+/// <reference path="./index.ts" />
+var BeautylogOsTable;
+(function (BeautylogOsTable) {
+    function init() {
+        BeautylogOsTable.cliTable = require("cli-table2");
+        var beautylogOsTable = {};
+        beautylogOsTable.new = function (type) {
+            var newConsoleTable = new ConsoleTable(type);
+            return newConsoleTable;
+        };
+        return beautylogOsTable;
+    }
+    BeautylogOsTable.init = init;
+})(BeautylogOsTable || (BeautylogOsTable = {}));
 /// <reference path="./index.ts" />
 var BeautylogBrowser;
 (function (BeautylogBrowser) {
@@ -139,8 +185,10 @@ var BeautylogBrowser;
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));
 /// <reference path="./typings/tsd.d.ts" />
-/// <reference path="./console.os.ts" />
-/// <reference path="./console.browser.ts" />
+/// <reference path="./beautylog.classes.ts" />
+/// <reference path="./beautylog.os.ts" />
+/// <reference path="./beautylog.os.table.ts" />
+/// <reference path="./beautylog.browser.ts" />
 var beautylog = function (logPlatform) {
     if (logPlatform === void 0) { logPlatform = "os"; }
     switch (logPlatform) {

@@ -4,12 +4,8 @@ var BeautylogOS;
     function init() {
         var colors = require("colors");
         var clc = require("cli-color");
-        var beautylogOS = {};
-        /**
-         * object to append to all locally used params
-         * @type {{}}
-         */
-        var localBl;
+        var beautylogOS = {}; //object to append to all public facing functions
+        var localBl; // object to append to all private params and functions
         localBl = {};
         localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
         localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
@@ -110,6 +106,7 @@ var BeautylogOS;
         beautylogOS.warn = function (logText) {
             return beautylogOS.log(logText, 'warn');
         };
+        beautylogOS.table = BeautylogOsTable.init();
         return beautylogOS;
     }
     BeautylogOS.init = init;

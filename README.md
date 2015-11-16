@@ -31,7 +31,7 @@ beautylog allows displaying data in nice tables for better overview.
 
 ```javascript
 var bl = require('beautylog')("os"); //for use in OS console environment
-var myTable = bl.table.new("checks"); //you can specify formats to trigger things like the green and red badges
+var myTable = bl.table.new("checks"); //you can specify a format like "checks" to trigger things like the green and red badges
 myTable.push(["check 1","success"]); // adds a row the myTable
 myTable.push(["check 2","error"]); // adds a row the myTable
 myTable.push(["check 3","error"]); // adds a row the myTable

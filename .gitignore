@@ -1,2 +1,11 @@
+node_modules/
+.settings/
 .idea/
-node_modules
+
+
+#npm devug
+npm-debug.log
+
+ts/*.js
+ts/*.js.map
+

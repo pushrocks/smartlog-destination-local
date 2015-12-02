@@ -81,9 +81,11 @@ var BeautylogOS;
                     case 'warn':
                         logText = localBl.warnPrefix + logText.bold;
                         break;
+                    case 'log':
                     default:
                         logText.blue.bold;
                         console.log(('unknown logType for "' + logText + '"').red.bold);
+                        break;
                 }
                 console.log(logText);
                 return true;
@@ -201,7 +203,7 @@ var beautylog = function (logPlatform) {
             return beautylogBrowser;
             break;
         default:
-            console.log("something is strage about the way you required beautylog");
+            console.log("something is strange about the way you required beautylog");
             break;
     }
 };

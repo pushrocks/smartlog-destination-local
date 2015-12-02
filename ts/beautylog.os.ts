@@ -46,9 +46,11 @@ module BeautylogOS {
                     case 'warn':
                         logText = localBl.warnPrefix + logText.bold;
                         break;
+                    case 'log':
                     default:
                         logText.blue.bold;
                         console.log(('unknown logType for "' + logText + '"').red.bold);
+                        break;
                 }
                 console.log(logText);
                 return true;

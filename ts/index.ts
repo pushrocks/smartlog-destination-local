@@ -15,7 +15,7 @@ var beautylog = function(logPlatform:string = "os") {
             return beautylogBrowser;
             break;
         default:
-            console.log("something is strage about the way you required beautylog");
+            console.log("something is strange about the way you required beautylog");
             break;
     }
 };

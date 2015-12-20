@@ -4,8 +4,13 @@
   "description": "beautiful logging",
   "main": "index.js",
   "scripts": {
-    "test": "(cd ts/compile && gulp) && (node test.js)",
-    "release": "(git pull origin master && npm version patch && git push origin master && git checkout release && git merge master && git push origin release && git checkout master)"
+    "test": "(cd ts/compile && node compile.js) && (node ./test.js)",
+    "gitsetup": "(git config push.followTags true)",
+    "push": "(git push origin master && git push origin release && git push --follow-tags)",
+    "reinstall": "(rm -r node_modules && npm install)",
+    "release": "(npm test) && (git pull origin master && npm version patch && git checkout release && git merge master && git checkout master && npm run push)",
+    "update": "(git checkout master && git pull origin master) && (npm install)",
+    "upgrade": "(npm run update) && (ncu upgradeAll && npm install)"
   },
   "repository": {
     "type": "git",
@@ -27,5 +32,10 @@
     "cli-color": "^1.1.0",
     "cli-table2": "^0.1.9",
     "colors": "1.1.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.10.0",
+    "pushrocks": "^1.0.25"
   }
 }

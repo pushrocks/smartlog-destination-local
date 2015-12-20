@@ -33,9 +33,18 @@ beautyLogBrowser.log("hello");
 console.log("*** end browser console test ***");
 
 console.log("*** start table test ***");
-var testTable = beautyLogOs.table.new("checks");
-testTable.push(['check1','success']);
-testTable.push(['check2','error']);
-testTable.push(['check3','error']);
-testTable.print();
+(function(){
+    var testTable1 = beautyLogOs.table.new("checks");
+    testTable1.push(['check1','success']);
+    testTable1.push(['check2','error']);
+    testTable1.push(['check3','error']);
+    testTable1.print();
+
+    var testTable2 = beautyLogOs.table.new("custom",["Column1".red,"Column2".blue,"Column3".cyan]);
+    testTable2.push(["Hey","this","works"]);
+    testTable2.print();
+})();
+
+
+
 console.log("*** end table test ***");

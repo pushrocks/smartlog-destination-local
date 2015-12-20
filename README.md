@@ -30,14 +30,29 @@ The plugin produces beautiful output like this:
 ### Console Tables
 beautylog allows displaying data in nice tables for better overview.
 
+There are different types of tables.
+
+#### Custom
+
 ```javascript
 var bl = require('beautylog')("os"); //for use in OS console environment
-var myTable = bl.table.new("checks"); //you can specify a format like "checks" to trigger things like the green and red badges
+var myTable = bl.table.new("custom",["Heading1".blue,"Heading2".blue,"Heading3".blue]); // type "custom"
 myTable.push(["check 1","success"]); // adds a row the myTable
 myTable.push(["check 2","error"]); // adds a row the myTable
 myTable.push(["check 3","error"]); // adds a row the myTable
 myTable.print(); //prints myTable to the console
 ```
 
-The table from the code above looks like this:
+#### Checks
+
+```javascript
+var bl = require('beautylog')("os"); //for use in OS console environment
+var myTable = bl.table.new("checks"); // type checks
+myTable.push(["check 1","success"]); // adds a row the myTable
+myTable.push(["check 2","error"]); // adds a row the myTable
+myTable.push(["check 3","error"]); // adds a row the myTable
+myTable.print(); //prints myTable to the console
+```
+
+The table from the code with type "checks" above looks like this:
 ![table.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png)

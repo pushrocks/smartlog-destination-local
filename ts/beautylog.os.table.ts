@@ -5,8 +5,8 @@ module BeautylogOsTable {
         cliTable =  require("cli-table2");
         var beautylogOsTable:any = {};
 
-        beautylogOsTable.new = function(type:string) {
-            var newConsoleTable = new ConsoleTable(type);
+        beautylogOsTable.new = function(typeArg:string,tableHeadArrayArg?) {
+            var newConsoleTable = new ConsoleTable(typeArg,tableHeadArrayArg);
             return newConsoleTable;
         };
         return beautylogOsTable;

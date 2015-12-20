@@ -1,23 +1,37 @@
 /// <reference path="./index.ts" />
+var tableHelpers = {
+    makeRow: function (cellCounterArg, colorArg) {
+        if (cellCounterArg === void 0) { cellCounterArg = 2; }
+        if (colorArg === void 0) { colorArg = "cyan"; }
+        var rowArray = [];
+        for (var i = 0; i < (cellCounterArg); i++) {
+            rowArray.push(String(i + 1).cyan);
+        }
+        return rowArray;
+    }
+};
 var ConsoleTable = (function () {
-    function ConsoleTable(tableType) {
-        switch (tableType) {
+    function ConsoleTable(tableTypeArg, tableHeadArrayArg) {
+        if (tableHeadArrayArg === void 0) { tableHeadArrayArg = tableHelpers.makeRow(); }
+        switch (tableTypeArg) {
             case "checks":
                 this.tableHead = ['Check Item:'.cyan, 'Status:'.cyan];
+                break;
+            case "custom":
+                this.tableHead = tableHeadArrayArg;
                 break;
             default:
                 break;
         }
         this.rows = [];
-        this.type = tableType;
+        this.type = tableTypeArg;
     }
     ConsoleTable.prototype.push = function (row) {
         this.rows.push(row);
     };
     ConsoleTable.prototype.print = function () {
         var table = new BeautylogOsTable.cliTable({
-            head: this.tableHead,
-            colWidths: [20, 20]
+            head: this.tableHead
         });
         for (var row in this.rows) {
             if (this.rows[row][1] == "success") {
@@ -154,8 +168,8 @@ var BeautylogOsTable;
     function init() {
         BeautylogOsTable.cliTable = require("cli-table2");
         var beautylogOsTable = {};
-        beautylogOsTable.new = function (type) {
-            var newConsoleTable = new ConsoleTable(type);
+        beautylogOsTable.new = function (typeArg, tableHeadArrayArg) {
+            var newConsoleTable = new ConsoleTable(typeArg, tableHeadArrayArg);
             return newConsoleTable;
         };
         return beautylogOsTable;

@@ -1,27 +1,38 @@
 /// <reference path="./index.ts" />
+var tableHelpers = {
+    makeRow: function(cellCounterArg:number = 2,colorArg:string = "cyan"){
+        var rowArray = [];
+        for (var i = 0; i < (cellCounterArg); i++) {
+            rowArray.push(String(i + 1).cyan);
+        }
+        return rowArray;
+    }
+};
 
 class ConsoleTable {
     tableHead:string[];
     rows;
     type:string;
-    constructor(tableType:string) {
-        switch (tableType) {
+    constructor(tableTypeArg:string,tableHeadArrayArg:string[] = tableHelpers.makeRow()) {
+        switch (tableTypeArg) {
             case "checks":
                 this.tableHead = ['Check Item:'.cyan,'Status:'.cyan];
+                break;
+            case "custom":
+                this.tableHead = tableHeadArrayArg;
                 break;
             default:
                 break;
         }
         this.rows = [];
-        this.type = tableType;
+        this.type = tableTypeArg;
     }
     push(row:string[]){
         this.rows.push(row);
     }
     print() {
         var table = new BeautylogOsTable.cliTable({
-            head: this.tableHead,
-            colWidths: [20, 20]
+            head: this.tableHead
         });
         for (var row in this.rows){
             if(this.rows[row][1] == "success"){

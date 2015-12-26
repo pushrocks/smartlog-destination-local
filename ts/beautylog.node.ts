@@ -1,10 +1,10 @@
 /// <reference path="./index.ts" />
-module BeautylogOS {
+module BeautylogNode {
     export function init() {
         var colors = require("colors");
         var clc = require("cli-color");
 
-        var beautylogOS:any = {}; //object to append to all public facing functions
+        var beautylogNode:any = {}; //object to append to all public facing functions
         var localBl:any; // object to append to all private params and functions
 
         localBl = {};
@@ -22,7 +22,7 @@ module BeautylogOS {
          * @param logType
          * @returns {boolean}
          */
-        beautylogOS.log = (logText:string = 'empty log', logType:string = 'normal') => {
+        beautylogNode.log = (logText:string = 'empty log', logType:string = 'normal') => {
             try {
                 switch (logType) {
                     case 'dir':
@@ -68,8 +68,8 @@ module BeautylogOS {
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.dir = function(logText) {
-            return beautylogOS.log(logText, 'dir');
+        beautylogNode.dir = function(logText) {
+            return beautylogNode.log(logText, 'dir');
         };
 
 
@@ -78,8 +78,8 @@ module BeautylogOS {
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.error = function(logText) {
-            return beautylogOS.log(logText, 'error');
+        beautylogNode.error = function(logText) {
+            return beautylogNode.log(logText, 'error');
         };
 
         /**
@@ -87,8 +87,8 @@ module BeautylogOS {
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.info = function(logText) {
-            return beautylogOS.log(logText, 'info');
+        beautylogNode.info = function(logText) {
+            return beautylogNode.log(logText, 'info');
         };
 
         /**
@@ -96,8 +96,8 @@ module BeautylogOS {
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.ok = function(logText) {
-            return beautylogOS.log(logText, 'ok');
+        beautylogNode.ok = function(logText) {
+            return beautylogNode.log(logText, 'ok');
         };
 
         /**
@@ -105,8 +105,8 @@ module BeautylogOS {
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.success = function(logText) {
-            return beautylogOS.log(logText, 'success');
+        beautylogNode.success = function(logText) {
+            return beautylogNode.log(logText, 'success');
         };
 
         /**
@@ -114,12 +114,12 @@ module BeautylogOS {
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.warn = function(logText) {
-            return beautylogOS.log(logText, 'warn');
+        beautylogNode.warn = function(logText) {
+            return beautylogNode.log(logText, 'warn');
         };
 
-        beautylogOS.table = BeautylogOsTable.init();
+        beautylogNode.table = BeautylogOsTable.init();
 
-        return beautylogOS;
+        return beautylogNode;
     }
 }

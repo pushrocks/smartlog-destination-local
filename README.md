@@ -11,8 +11,7 @@ beautiful logging
 ```javascript
 
 ### Simple Logging
-var bl = require('beautylog')("os"); //for use in OS console environment
-var bl = require('beautylog')("browser"); //for use in browser console environment like Google Chrome
+var bl = require('beautylog'); //for use in OS console environment AND browser console
 
 
 bl.log('some log message'); //normal console log message

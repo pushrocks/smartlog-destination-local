@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "(cd ts/compile && node compile.js) && (node ./test.js)",
+    "testbrowser": "(npm test) && (node testbrowser.js)",
     "gitsetup": "(git config push.followTags true)",
     "push": "(git push origin master && git push origin release && git push --follow-tags)",
     "reinstall": "(rm -r node_modules && npm install)",
@@ -31,11 +32,13 @@
   "dependencies": {
     "cli-color": "^1.1.0",
     "cli-table2": "^0.1.9",
-    "colors": "1.1.2"
+    "colors": "1.1.2",
+    "smartenv": "0.0.15"
   },
   "devDependencies": {
+    "easyserve": "0.0.4",
     "gulp": "^3.9.0",
-    "gulp-typescript": "^2.10.0",
-    "pushrocks": "^1.0.25"
+    "gulp-browser": "0.0.18",
+    "gulp-typescript": "^2.10.0"
   }
 }

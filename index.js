@@ -1,4 +1,14 @@
 /// <reference path="./index.ts" />
+var BeautylogPlugins;
+(function (BeautylogPlugins) {
+    BeautylogPlugins.init = function () {
+        var plugins = {
+            smartenv: require("smartenv")
+        };
+        return plugins;
+    };
+})(BeautylogPlugins || (BeautylogPlugins = {}));
+/// <reference path="./index.ts" />
 var tableHelpers = {
     makeRow: function (cellCounterArg, colorArg) {
         if (cellCounterArg === void 0) { cellCounterArg = 2; }
@@ -48,12 +58,12 @@ var ConsoleTable = (function () {
     return ConsoleTable;
 })();
 /// <reference path="./index.ts" />
-var BeautylogOS;
-(function (BeautylogOS) {
+var BeautylogNode;
+(function (BeautylogNode) {
     function init() {
         var colors = require("colors");
         var clc = require("cli-color");
-        var beautylogOS = {}; //object to append to all public facing functions
+        var beautylogNode = {}; //object to append to all public facing functions
         var localBl; // object to append to all private params and functions
         localBl = {};
         localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
@@ -69,7 +79,7 @@ var BeautylogOS;
          * @param logType
          * @returns {boolean}
          */
-        beautylogOS.log = function (logText, logType) {
+        beautylogNode.log = function (logText, logType) {
             if (logText === void 0) { logText = 'empty log'; }
             if (logType === void 0) { logType = 'normal'; }
             try {
@@ -114,54 +124,54 @@ var BeautylogOS;
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.dir = function (logText) {
-            return beautylogOS.log(logText, 'dir');
+        beautylogNode.dir = function (logText) {
+            return beautylogNode.log(logText, 'dir');
         };
         /**
          * logs an error to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.error = function (logText) {
-            return beautylogOS.log(logText, 'error');
+        beautylogNode.error = function (logText) {
+            return beautylogNode.log(logText, 'error');
         };
         /**
          * logs an info to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.info = function (logText) {
-            return beautylogOS.log(logText, 'info');
+        beautylogNode.info = function (logText) {
+            return beautylogNode.log(logText, 'info');
         };
         /**
          * logs an 'OK!' message to console
          * @param logText
          * @returns {boolean}
          */
-        beautylogOS.ok = function (logText) {
-            return beautylogOS.log(logText, 'ok');
+        beautylogNode.ok = function (logText) {
+            return beautylogNode.log(logText, 'ok');
         };
         /**
          * logs a success to console
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.success = function (logText) {
-            return beautylogOS.log(logText, 'success');
+        beautylogNode.success = function (logText) {
+            return beautylogNode.log(logText, 'success');
         };
         /**
          * logs a 'warn:' message to console
          * @param logText string to log as error
          * @returns {boolean}
          */
-        beautylogOS.warn = function (logText) {
-            return beautylogOS.log(logText, 'warn');
+        beautylogNode.warn = function (logText) {
+            return beautylogNode.log(logText, 'warn');
         };
-        beautylogOS.table = BeautylogOsTable.init();
-        return beautylogOS;
+        beautylogNode.table = BeautylogOsTable.init();
+        return beautylogNode;
     }
-    BeautylogOS.init = init;
-})(BeautylogOS || (BeautylogOS = {}));
+    BeautylogNode.init = init;
+})(BeautylogNode || (BeautylogNode = {}));
 /// <reference path="./index.ts" />
 var BeautylogOsTable;
 (function (BeautylogOsTable) {
@@ -201,15 +211,16 @@ var BeautylogBrowser;
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));
 /// <reference path="./typings/tsd.d.ts" />
+/// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
-/// <reference path="./beautylog.os.ts" />
-/// <reference path="./beautylog.os.table.ts" />
+/// <reference path="./beautylog.node.ts" />
+/// <reference path="./beautylog.node.table.ts" />
 /// <reference path="./beautylog.browser.ts" />
-var beautylog = function (logPlatform) {
-    if (logPlatform === void 0) { logPlatform = "os"; }
-    switch (logPlatform) {
-        case "os":
-            var beautylogOs = BeautylogOS.init();
+var plugins = BeautylogPlugins.init();
+var beautylog = (function () {
+    switch (plugins.smartenv.getEnv().runtimeEnv) {
+        case "node":
+            var beautylogOs = BeautylogNode.init();
             return beautylogOs;
             break;
         case "browser":
@@ -217,8 +228,8 @@ var beautylog = function (logPlatform) {
             return beautylogBrowser;
             break;
         default:
-            console.log("something is strange about the way you required beautylog");
+            console.log("something is strange about the platform in which you try to use beautylog");
             break;
     }
-};
+})();
 module.exports = beautylog;

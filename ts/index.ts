@@ -1,13 +1,15 @@
 /// <reference path="./typings/tsd.d.ts" />
+/// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
-/// <reference path="./beautylog.os.ts" />
-/// <reference path="./beautylog.os.table.ts" />
+/// <reference path="./beautylog.node.ts" />
+/// <reference path="./beautylog.node.table.ts" />
 /// <reference path="./beautylog.browser.ts" />
 
-var beautylog = function(logPlatform:string = "os") {
-    switch (logPlatform) {
-        case "os":
-            var beautylogOs = BeautylogOS.init();
+var plugins = BeautylogPlugins.init();
+var beautylog = (function() {
+    switch (plugins.smartenv.getEnv().runtimeEnv) {
+        case "node":
+            var beautylogOs = BeautylogNode.init();
             return beautylogOs;
             break;
         case "browser":
@@ -15,8 +17,8 @@ var beautylog = function(logPlatform:string = "os") {
             return beautylogBrowser;
             break;
         default:
-            console.log("something is strange about the way you required beautylog");
+            console.log("something is strange about the platform in which you try to use beautylog");
             break;
     }
-};
+})();
 module.exports = beautylog;

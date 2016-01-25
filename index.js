@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /// <reference path="./index.ts" />
 var BeautylogPlugins;
 (function (BeautylogPlugins) {

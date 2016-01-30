@@ -26,6 +26,10 @@ bl.log('some error message','error');
 The plugin produces beautiful output like this:
 ![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)
 
+### Code Highlighting
+
+
+
 ### Console Tables
 beautylog allows displaying data in nice tables for better overview.
 
@@ -55,3 +59,4 @@ myTable.print(); //prints myTable to the console
 
 The table from the code with type "checks" above looks like this:
 ![table.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png)
+

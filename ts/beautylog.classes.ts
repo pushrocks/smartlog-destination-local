@@ -31,7 +31,7 @@ class ConsoleTable {
         this.rows.push(row);
     }
     print() {
-        var table = new BeautylogOsTable.cliTable({
+        var table = new BeautylogNodeTable.cliTable({
             head: this.tableHead
         });
         for (var row in this.rows){

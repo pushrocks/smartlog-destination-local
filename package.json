@@ -33,12 +33,14 @@
     "cli-color": "^1.1.0",
     "cli-table2": "^0.1.9",
     "colors": "1.1.2",
+    "highlight.js": "^9.1.0",
+    "html2console": "0.0.4",
     "smartenv": "0.0.15"
   },
   "devDependencies": {
-    "easyserve": "0.0.4",
+    "easyserve": "0.0.5",
     "gulp": "^3.9.0",
-    "gulp-browser": "0.0.18",
-    "npmts": "^1.0.9"
+    "gulp-browser": "1.0.3",
+    "npmts": "^1.0.12"
   }
 }

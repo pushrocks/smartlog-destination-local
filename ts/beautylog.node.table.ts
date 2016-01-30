@@ -1,5 +1,5 @@
 /// <reference path="./index.ts" />
-module BeautylogOsTable {
+module BeautylogNodeTable {
     export var cliTable;
     export function init() {
         cliTable =  require("cli-table2");

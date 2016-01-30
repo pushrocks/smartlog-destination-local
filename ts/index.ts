@@ -2,6 +2,8 @@
 /// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
 /// <reference path="./beautylog.node.ts" />
+/// <reference path="./beautylog.node.log.ts" />
+/// <reference path="./beautylog.node.code.ts" />
 /// <reference path="./beautylog.node.table.ts" />
 /// <reference path="./beautylog.browser.ts" />
 

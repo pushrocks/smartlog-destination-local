@@ -44,3 +44,11 @@ console.log("*** start table test ***");
 
 
 console.log("*** end table test ***");
+
+console.log("*** start code test ***");
+beautyLog.code(
+    "var test = 3; function(){}\n",
+    {
+        language:"javascript"
+    }
+);

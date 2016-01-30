@@ -42,7 +42,7 @@ var ConsoleTable = (function () {
         this.rows.push(row);
     };
     ConsoleTable.prototype.print = function () {
-        var table = new BeautylogOsTable.cliTable({
+        var table = new BeautylogNodeTable.cliTable({
             head: this.tableHead
         });
         for (var row in this.rows) {
@@ -63,64 +63,12 @@ var ConsoleTable = (function () {
 var BeautylogNode;
 (function (BeautylogNode) {
     function init() {
-        var colors = require("colors");
-        var clc = require("cli-color");
-        var beautylogNode = {}; //object to append to all public facing functions
-        var localBl; // object to append to all private params and functions
-        localBl = {};
-        localBl.dirPrefix = clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ';
-        localBl.errorPrefix = ' Error: '.bgRed.white.bold + ' ';
-        localBl.infoPrefix = clc.bgXterm(198).xterm(231).bold(' INFO ') + ' ';
-        localBl.normalPrefix = ' Log: '.bgCyan.white.bold + ' ';
-        localBl.okPrefix = ' '.bgGreen + ' OK! '.bgBlack.green.bold + ' ';
-        localBl.successPrefix = ' Success: '.bgGreen.white.bold + ' ';
-        localBl.warnPrefix = ' '.bgYellow + ' Warn: '.bgBlack.yellow.bold + ' ';
-        /**
-         *
-         * @param logText
-         * @param logType
-         * @returns {boolean}
-         */
-        beautylogNode.log = function (logText, logType) {
-            if (logText === void 0) { logText = 'empty log'; }
-            if (logType === void 0) { logType = 'normal'; }
-            try {
-                switch (logType) {
-                    case 'dir':
-                        logText = localBl.dirPrefix + clc.xterm(26)(logText);
-                        break;
-                    case 'error':
-                        logText = localBl.errorPrefix + logText.red.bold;
-                        break;
-                    case 'info':
-                        logText = localBl.infoPrefix + clc.xterm(198)(logText);
-                        break;
-                    case 'normal':
-                        logText = localBl.normalPrefix + logText.cyan.bold;
-                        break;
-                    case 'ok':
-                        logText = localBl.okPrefix + logText.bold;
-                        break;
-                    case 'success':
-                        logText = localBl.successPrefix + logText.green.bold;
-                        break;
-                    case 'warn':
-                        logText = localBl.warnPrefix + logText.bold;
-                        break;
-                    case 'log':
-                    default:
-                        logText.blue.bold;
-                        console.log(('unknown logType for "' + logText + '"').red.bold);
-                        break;
-                }
-                console.log(logText);
-                return true;
-            }
-            catch (error) {
-                console.log(localBl.errorPrefix + 'You seem to have tried logging something strange'.red.bold + error);
-                return false;
-            }
-        };
+        plugins.colors = require("colors");
+        plugins.clc = require("cli-color");
+        var beautylogNode = {
+            log: BeautylogNodeLog.init(),
+            code: BeautylogNodeCode.init()
+        }; //object to append to all public facing functions
         /**
          * logs an directory to console
          * @param logText
@@ -169,16 +117,116 @@ var BeautylogNode;
         beautylogNode.warn = function (logText) {
             return beautylogNode.log(logText, 'warn');
         };
-        beautylogNode.table = BeautylogOsTable.init();
+        beautylogNode.table = BeautylogNodeTable.init();
         return beautylogNode;
     }
     BeautylogNode.init = init;
 })(BeautylogNode || (BeautylogNode = {}));
 /// <reference path="./index.ts" />
-var BeautylogOsTable;
-(function (BeautylogOsTable) {
+var BeautylogNodeLog;
+(function (BeautylogNodeLog) {
+    BeautylogNodeLog.init = function () {
+        var localBl = {
+            dirPrefix: plugins.clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ',
+            errorPrefix: ' Error: '.bgRed.white.bold + ' ',
+            infoPrefix: plugins.clc.bgXterm(198).xterm(231).bold(' INFO ') + ' ',
+            normalPrefix: ' Log: '.bgCyan.white.bold + ' ',
+            okPrefix: ' '.bgGreen + ' OK! '.bgBlack.green.bold + ' ',
+            successPrefix: ' Success: '.bgGreen.white.bold + ' ',
+            warnPrefix: ' '.bgYellow + ' Warn: '.bgBlack.yellow.bold + ' '
+        };
+        /**
+         *
+         * @param logText
+         * @param logType
+         * @returns {boolean}
+         */
+        var logFunction = function (logText, logType) {
+            if (logText === void 0) { logText = 'empty log'; }
+            if (logType === void 0) { logType = 'normal'; }
+            try {
+                switch (logType) {
+                    case 'dir':
+                        logText = localBl.dirPrefix + plugins.clc.xterm(26)(logText);
+                        break;
+                    case 'error':
+                        logText = localBl.errorPrefix + logText.red.bold;
+                        break;
+                    case 'info':
+                        logText = localBl.infoPrefix + plugins.clc.xterm(198)(logText);
+                        break;
+                    case 'normal':
+                        logText = localBl.normalPrefix + logText.cyan.bold;
+                        break;
+                    case 'ok':
+                        logText = localBl.okPrefix + logText.bold;
+                        break;
+                    case 'success':
+                        logText = localBl.successPrefix + logText.green.bold;
+                        break;
+                    case 'warn':
+                        logText = localBl.warnPrefix + logText.bold;
+                        break;
+                    case 'log':
+                    default:
+                        logText.blue.bold;
+                        console.log(('unknown logType for "' + logText + '"').red.bold);
+                        break;
+                }
+                console.log(logText);
+                return true;
+            }
+            catch (error) {
+                console.log(localBl.errorPrefix + 'You seem to have tried logging something strange'.red.bold + error);
+                return false;
+            }
+        };
+        return logFunction;
+    };
+})(BeautylogNodeLog || (BeautylogNodeLog = {}));
+/// <reference path="./index.ts" />
+var BeautylogNodeCode;
+(function (BeautylogNodeCode) {
+    BeautylogNodeCode.init = function () {
+        var consoleHighlight = function (code, language) {
+            var fs = require('fs'), path = require('path'), htmlout = require('html2console'), hljs = require('highlight.js');
+            var css = fs.readFileSync(path.join(__dirname, 'code.css'), 'utf8');
+            var result;
+            if (typeof language === "undefined") {
+                result = hljs.highlight(language, code);
+            }
+            else {
+                result = hljs.highlightAuto(code);
+            }
+            ;
+            var html = result.value;
+            var output = htmlout.withCSS(css);
+            //console.log(html);
+            return output('<pre class="hljs">' + html + '</pre>');
+        };
+        var codeFunction = function (codeString, options) {
+            var codeSnippet = {
+                source: codeString,
+                highlighted: "default"
+            };
+            if (typeof codeString != "string") {
+                console.log("beautylog.code() expects a string as first argument!");
+                return;
+            }
+            ;
+            if (typeof options != "undefined") {
+                codeSnippet.highlighted = consoleHighlight(codeSnippet.source, options.language);
+                console.log(codeSnippet.highlighted);
+            }
+        };
+        return codeFunction;
+    };
+})(BeautylogNodeCode || (BeautylogNodeCode = {}));
+/// <reference path="./index.ts" />
+var BeautylogNodeTable;
+(function (BeautylogNodeTable) {
     function init() {
-        BeautylogOsTable.cliTable = require("cli-table2");
+        BeautylogNodeTable.cliTable = require("cli-table2");
         var beautylogOsTable = {};
         beautylogOsTable.new = function (typeArg, tableHeadArrayArg) {
             var newConsoleTable = new ConsoleTable(typeArg, tableHeadArrayArg);
@@ -186,8 +234,8 @@ var BeautylogOsTable;
         };
         return beautylogOsTable;
     }
-    BeautylogOsTable.init = init;
-})(BeautylogOsTable || (BeautylogOsTable = {}));
+    BeautylogNodeTable.init = init;
+})(BeautylogNodeTable || (BeautylogNodeTable = {}));
 /// <reference path="./index.ts" />
 var BeautylogBrowser;
 (function (BeautylogBrowser) {
@@ -216,6 +264,8 @@ var BeautylogBrowser;
 /// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
 /// <reference path="./beautylog.node.ts" />
+/// <reference path="./beautylog.node.log.ts" />
+/// <reference path="./beautylog.node.code.ts" />
 /// <reference path="./beautylog.node.table.ts" />
 /// <reference path="./beautylog.browser.ts" />
 var plugins = BeautylogPlugins.init();

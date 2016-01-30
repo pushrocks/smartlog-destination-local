@@ -1,8 +1,6 @@
 /// <reference path="ts/typings/tsd.d.ts" />
 declare module BeautylogPlugins {
-    var init: () => {
-        smartenv: any;
-    };
+    var init: () => any;
 }
 declare var tableHelpers: {
     makeRow: (cellCounterArg?: number, colorArg?: string) => any[];
@@ -18,14 +16,18 @@ declare class ConsoleTable {
 declare module BeautylogNode {
     function init(): any;
 }
-declare module BeautylogOsTable {
+declare module BeautylogNodeLog {
+    var init: () => (logText?: string, logType?: string) => boolean;
+}
+declare module BeautylogNodeCode {
+    var init: () => (codeString: any, options?: any) => void;
+}
+declare module BeautylogNodeTable {
     var cliTable: any;
     function init(): any;
 }
 declare module BeautylogBrowser {
     function init(): any;
 }
-declare var plugins: {
-    smartenv: any;
-};
+declare var plugins: any;
 declare var beautylog: any;

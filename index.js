@@ -244,7 +244,7 @@ var BeautylogBrowser;
     }
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));
-/// <reference path="./typings/tsd.d.ts" />
+/// <reference path="./typings/main.d.ts" />
 /// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
 /// <reference path="./beautylog.node.ts" />

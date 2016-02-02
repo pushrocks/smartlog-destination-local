@@ -4,7 +4,7 @@
   "description": "beautiful logging",
   "main": "index.js",
   "scripts": {
-    "test": "(npmts) && (node ./test.js)",
+    "test": "(npmts)",
     "testbrowser": "(npm test) && (node testbrowser.js)",
     "gitsetup": "(git config push.followTags true)",
     "push": "(git push origin master && git push origin release && git push --follow-tags)",

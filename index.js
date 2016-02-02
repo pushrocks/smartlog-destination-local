@@ -216,7 +216,6 @@ var BeautylogNodeCode;
             ;
             if (typeof options != "undefined") {
                 codeSnippet.highlighted = consoleHighlight(codeSnippet.source, options.language);
-                console.log(codeSnippet.highlighted);
             }
         };
         return codeFunction;

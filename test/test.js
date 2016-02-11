@@ -64,8 +64,12 @@ describe("beautylog", function () {
     });
     describe(".figlet", function () {
         it("should print nice fonts to console in yellow", function (done) {
-            this.timeout(10000);
-            beautylog.figlet("Awesome!", { font: "Star Wars", color: "yellow", cb: done });
+            beautylog.figlet("Async!", { font: "Star Wars", color: "yellow" }).then(done);
+        });
+    });
+    describe(".figletSync", function () {
+        it("should print nice fonts to console in yellow", function () {
+            beautylog.figletSync("Sync!", { font: "Star Wars", color: "blue" });
         });
     });
     describe(".code", function () {

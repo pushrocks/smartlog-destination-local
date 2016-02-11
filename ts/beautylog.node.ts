@@ -5,7 +5,8 @@ module BeautylogNode {
         var beautylogNode:any = {
             log:BeautylogNodeLog.init(),
             code:BeautylogNodeCode.init(),
-            figlet:BeautylogNodeFiglet.init()
+            figlet:BeautylogNodeFiglet.figlet,
+            figletSync:BeautylogNodeFiglet.figletSync
         };
 
         /**

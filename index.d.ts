@@ -27,7 +27,8 @@ declare module BeautylogNodeTable {
     function init(): any;
 }
 declare module BeautylogNodeFiglet {
-    var init: () => (textArg: string, optionsArg?: any) => void;
+    var figlet: (textArg: string, optionsArg?: any) => any;
+    var figletSync: (textArg: string, optionsArg?: any) => boolean;
 }
 declare module BeautylogBrowser {
     function init(): any;

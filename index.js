@@ -76,7 +76,8 @@ var BeautylogNode;
         var beautylogNode = {
             log: BeautylogNodeLog.init(),
             code: BeautylogNodeCode.init(),
-            figlet: BeautylogNodeFiglet.init()
+            figlet: BeautylogNodeFiglet.figlet,
+            figletSync: BeautylogNodeFiglet.figletSync
         };
         /**
          * logs an directory to console
@@ -232,13 +233,15 @@ var BeautylogNodeTable;
 /// <reference path="./index.ts" />
 var BeautylogNodeFiglet;
 (function (BeautylogNodeFiglet) {
-    var figlet = function (textArg, optionsArg) {
-        var defaultOptions = {
-            font: "Star Wars",
-            color: "green",
-            cb: function () { }
-        };
-        var options = plugins.lodash.assign(defaultOptions, optionsArg);
+    var defaultOptions = {
+        font: "Star Wars",
+        color: "green",
+        cb: function () { }
+    };
+    BeautylogNodeFiglet.figlet = function (textArg, optionsArg) {
+        var done = plugins.q.defer();
+        var mergeOptions = plugins.lodash.cloneDeep(defaultOptions);
+        var options = plugins.lodash.assign(mergeOptions, optionsArg);
         plugins.figlet(textArg, {
             font: options.font,
             horizontalLayout: 'default',
@@ -251,12 +254,19 @@ var BeautylogNodeFiglet;
             }
             console.log(data[options.color]);
             options.cb();
+            done.resolve();
         });
+        return done.promise;
     };
-    BeautylogNodeFiglet.init = function () {
-        var done = plugins.q.defer();
-        done.resolve();
-        return figlet;
+    BeautylogNodeFiglet.figletSync = function (textArg, optionsArg) {
+        var mergeOptions = plugins.lodash.cloneDeep(defaultOptions);
+        var options = plugins.lodash.assign(mergeOptions, optionsArg);
+        console.log(plugins.figlet.textSync(textArg, {
+            font: options.font,
+            horizontalLayout: 'default',
+            verticalLayout: 'default'
+        })[options.color]);
+        return true;
     };
 })(BeautylogNodeFiglet || (BeautylogNodeFiglet = {}));
 /// <reference path="./index.ts" />

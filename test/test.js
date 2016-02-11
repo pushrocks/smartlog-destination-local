@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /// <reference path="./typings/main.d.ts" />
 var smartenv = require("smartenv");
 var beautylog = require('../index.js');

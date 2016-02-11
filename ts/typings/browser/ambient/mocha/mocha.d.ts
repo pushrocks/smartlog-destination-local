@@ -1,4 +1,4 @@
-// Compiled using typings@0.6.5
+// Compiled using typings@0.6.8
 // Source: https://raw.githubusercontent.com/Bartvds/tsd-deftools/master/typings/DefinitelyTyped/mocha/mocha.d.ts
 // Type definitions for mocha 1.9.0
 // Project: http://visionmedia.github.io/mocha/

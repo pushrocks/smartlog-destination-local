@@ -1,4 +1,4 @@
-// Compiled using typings@0.6.5
+// Compiled using typings@0.6.8
 // Source: https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/master/node/node.d.ts
 // Type definitions for Node.js v4.x
 // Project: http://nodejs.org/
@@ -413,6 +413,9 @@ interface NodeBuffer {
 ************************************************/
 declare module "buffer" {
     export var INSPECT_MAX_BYTES: number;
+    var BuffType: typeof Buffer;
+    var SlowBuffType: typeof SlowBuffer;
+    export { BuffType as Buffer, SlowBuffType as SlowBuffer };
 }
 
 declare module "querystring" {

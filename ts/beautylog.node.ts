@@ -1,13 +1,12 @@
 /// <reference path="./index.ts" />
 module BeautylogNode {
     export function init() {
-        plugins.colors = require("colors");
-        plugins.clc = require("cli-color");
 
         var beautylogNode:any = {
             log:BeautylogNodeLog.init(),
-            code:BeautylogNodeCode.init()
-        }; //object to append to all public facing functions
+            code:BeautylogNodeCode.init(),
+            figlet:BeautylogNodeFiglet.init()
+        };
 
         /**
          * logs an directory to console

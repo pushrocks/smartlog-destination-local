@@ -3,10 +3,20 @@
 /// <reference path="./index.ts" />
 var BeautylogPlugins;
 (function (BeautylogPlugins) {
+    var plugins = {};
     BeautylogPlugins.init = function () {
-        var plugins = {
-            smartenv: require("smartenv")
+        plugins = {
+            lodash: require("lodash"),
+            smartenv: require("smartenv"),
+            q: require("q")
         };
+        if (plugins.smartenv.getEnv().isNode) {
+            plugins = plugins.lodash.assign(plugins, {
+                colors: require("colors"),
+                clc: require("cli-color"),
+                figlet: require("figlet")
+            });
+        }
         return plugins;
     };
 })(BeautylogPlugins || (BeautylogPlugins = {}));
@@ -63,12 +73,11 @@ var ConsoleTable = (function () {
 var BeautylogNode;
 (function (BeautylogNode) {
     function init() {
-        plugins.colors = require("colors");
-        plugins.clc = require("cli-color");
         var beautylogNode = {
             log: BeautylogNodeLog.init(),
-            code: BeautylogNodeCode.init()
-        }; //object to append to all public facing functions
+            code: BeautylogNodeCode.init(),
+            figlet: BeautylogNodeFiglet.init()
+        };
         /**
          * logs an directory to console
          * @param logText
@@ -221,6 +230,36 @@ var BeautylogNodeTable;
     BeautylogNodeTable.init = init;
 })(BeautylogNodeTable || (BeautylogNodeTable = {}));
 /// <reference path="./index.ts" />
+var BeautylogNodeFiglet;
+(function (BeautylogNodeFiglet) {
+    var figlet = function (textArg, optionsArg) {
+        var defaultOptions = {
+            font: "Star Wars",
+            color: "green",
+            cb: function () { }
+        };
+        var options = plugins.lodash.assign(defaultOptions, optionsArg);
+        plugins.figlet(textArg, {
+            font: options.font,
+            horizontalLayout: 'default',
+            verticalLayout: 'default'
+        }, function (err, data) {
+            if (err) {
+                console.log('Something went wrong...');
+                console.dir(err);
+                return;
+            }
+            console.log(data[options.color]);
+            options.cb();
+        });
+    };
+    BeautylogNodeFiglet.init = function () {
+        var done = plugins.q.defer();
+        done.resolve();
+        return figlet;
+    };
+})(BeautylogNodeFiglet || (BeautylogNodeFiglet = {}));
+/// <reference path="./index.ts" />
 var BeautylogBrowser;
 (function (BeautylogBrowser) {
     function init() {
@@ -244,6 +283,7 @@ var BeautylogBrowser;
     }
     BeautylogBrowser.init = init;
 })(BeautylogBrowser || (BeautylogBrowser = {}));
+/// <reference path="./index.ts" />
 /// <reference path="./typings/main.d.ts" />
 /// <reference path="./beautylog.plugins.ts" />
 /// <reference path="./beautylog.classes.ts" />
@@ -251,7 +291,9 @@ var BeautylogBrowser;
 /// <reference path="./beautylog.node.log.ts" />
 /// <reference path="./beautylog.node.code.ts" />
 /// <reference path="./beautylog.node.table.ts" />
+/// <reference path="./beautylog.node.figlet.ts" />
 /// <reference path="./beautylog.browser.ts" />
+/// <reference path="./beautylog.promisechain.ts" />
 var plugins = BeautylogPlugins.init();
 var beautylog = (function () {
     switch (plugins.smartenv.getEnv().runtimeEnv) {

@@ -6,6 +6,7 @@ beautiful logging
 [![Dependency Status](https://david-dm.org/pushrocks/beautylog.svg)](https://david-dm.org/pushrocks/beautylog)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/beautylog/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/beautylog/master/dependencies/npm)
 [![bitHound Score](https://www.bithound.io/github/pushrocks/beautylog/badges/score.svg)](https://www.bithound.io/github/pushrocks/beautylog)
+[![Coverage Status](https://coveralls.io/repos/github/pushrocks/beautylog/badge.svg?branch=greenkeeper-npmts-2.1.10)](https://coveralls.io/github/pushrocks/beautylog?branch=greenkeeper-npmts-2.1.10)
 
 ## Usage
 ```javascript

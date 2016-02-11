@@ -24,7 +24,7 @@ describe("beautylog", function () {
         });
     });
     describe(".error(message)", function () {
-        it("sould print a red error message", function () {
+        it("should print a red error message", function () {
             beautylog.error('beautylog.error(), with normal logText, without logType');
         });
     });
@@ -60,6 +60,12 @@ describe("beautylog", function () {
                 testTable2.push(["Hey", "this", "works"]);
                 testTable2.print();
             })();
+        });
+    });
+    describe(".figlet", function () {
+        it("should print nice fonts to console in yellow", function (done) {
+            this.timeout(10000);
+            beautylog.figlet("Awesome!", { font: "Star Wars", color: "yellow", cb: done });
         });
     });
     describe(".code", function () {

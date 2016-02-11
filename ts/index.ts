@@ -5,7 +5,9 @@
 /// <reference path="./beautylog.node.log.ts" />
 /// <reference path="./beautylog.node.code.ts" />
 /// <reference path="./beautylog.node.table.ts" />
+/// <reference path="./beautylog.node.figlet.ts" />
 /// <reference path="./beautylog.browser.ts" />
+/// <reference path="./beautylog.promisechain.ts" />
 
 var plugins = BeautylogPlugins.init();
 var beautylog = (function() {

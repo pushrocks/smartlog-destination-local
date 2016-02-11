@@ -26,8 +26,13 @@ declare module BeautylogNodeTable {
     var cliTable: any;
     function init(): any;
 }
+declare module BeautylogNodeFiglet {
+    var init: () => (textArg: string, optionsArg?: any) => void;
+}
 declare module BeautylogBrowser {
     function init(): any;
+}
+declare module BeautylogPromiseChain {
 }
 declare var plugins: any;
 declare var beautylog: any;

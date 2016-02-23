@@ -1,4 +1,6 @@
-/// <reference path="./index.ts" />
+/// <reference path="./typings/main.d.ts" />
+import plugins = require("./beautylog.plugins");
+
 var tableHelpers = {
     makeRow: function(cellCounterArg:number = 2,colorArg:string = "cyan"){
         var rowArray = [];
@@ -9,7 +11,7 @@ var tableHelpers = {
     }
 };
 
-class ConsoleTable {
+export class ConsoleTable {
     tableHead:string[];
     rows;
     type:string;
@@ -31,7 +33,7 @@ class ConsoleTable {
         this.rows.push(row);
     }
     print() {
-        var table = new BeautylogNodeTable.cliTable({
+        var table = new plugins.cliTable({
             head: this.tableHead
         });
         for (var row in this.rows){

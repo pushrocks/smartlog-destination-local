@@ -1,4 +1,1 @@
-/// <reference path="./index.ts" />
-module BeautylogPromiseChain {
-
-}
+/// <reference path="./typings/main.d.ts" />

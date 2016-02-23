@@ -1,14 +1,10 @@
-/// <reference path="./index.ts" />
-module BeautylogNodeTable {
-    export var cliTable;
-    export function init() {
-        cliTable =  require("cli-table2");
-        var beautylogOsTable:any = {};
+/// <reference path="./typings/main.d.ts" />
+import classes = require("./beautylog.classes");
 
-        beautylogOsTable.new = function(typeArg:string,tableHeadArrayArg?) {
-            var newConsoleTable = new ConsoleTable(typeArg,tableHeadArrayArg);
-            return newConsoleTable;
-        };
-        return beautylogOsTable;
-    }
-}
+var beautylogOsTable:any = {};
+
+beautylogOsTable.new = function(typeArg:string,tableHeadArrayArg?) {
+    var newConsoleTable = new classes.ConsoleTable(typeArg,tableHeadArrayArg);
+    return newConsoleTable;
+};
+export = beautylogOsTable;

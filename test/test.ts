@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="../ts/typings/main.d.ts" />
 var smartenv = require("smartenv");
 var beautylog = require('../index.js');
 

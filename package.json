@@ -35,14 +35,14 @@
     "colors": "1.1.2",
     "figlet": "^1.1.1",
     "hlight": "0.0.8",
-    "lodash": "^4.5.0",
+    "lodash": "^4.5.1",
     "q": "^1.4.1",
-    "smartenv": "1.0.6"
+    "smartenv": "1.0.7"
   },
   "devDependencies": {
     "easyserve": "0.0.5",
     "gulp": "^3.9.1",
     "gulp-browser": "1.0.10",
-    "npmts": "2.3.3"
+    "npmts": "3.1.2"
   }
 }

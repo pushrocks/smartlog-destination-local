@@ -1,71 +1,63 @@
-/// <reference path="./index.ts" />
-module BeautylogNode {
-    export function init() {
+/// <reference path="./typings/main.d.ts" />
 
-        var beautylogNode:any = {
-            log:BeautylogNodeLog.init(),
-            code:BeautylogNodeCode.init(),
-            figlet:BeautylogNodeFiglet.figlet,
-            figletSync:BeautylogNodeFiglet.figletSync
-        };
+import log = require("./beautylog.node.log");
+export import table = require("./beautylog.node.table");
+import code = require("./beautylog.node.code");
+import figletModule = require("./beautylog.node.figlet");
 
-        /**
-         * logs an directory to console
-         * @param logText
-         * @returns {boolean}
-         */
-        beautylogNode.dir = function(logText) {
-            return beautylogNode.log(logText, 'dir');
-        };
+export let figlet = figletModule.figlet;
+export let figletSync = figletModule.figletSync;
+/**
+ * logs an directory to console
+ * @param logText
+ * @returns {boolean}
+ */
+export let dir = function(logText) {
+    return log(logText, 'dir');
+};
 
 
-        /**
-         * logs an error to console
-         * @param logText
-         * @returns {boolean}
-         */
-        beautylogNode.error = function(logText) {
-            return beautylogNode.log(logText, 'error');
-        };
+/**
+ * logs an error to console
+ * @param logText
+ * @returns {boolean}
+ */
+export let error = function(logText) {
+    return log(logText, 'error');
+};
 
-        /**
-         * logs an info to console
-         * @param logText
-         * @returns {boolean}
-         */
-        beautylogNode.info = function(logText) {
-            return beautylogNode.log(logText, 'info');
-        };
+/**
+ * logs an info to console
+ * @param logText
+ * @returns {boolean}
+ */
+export let info = function(logText) {
+    return log(logText, 'info');
+};
 
-        /**
-         * logs an 'OK!' message to console
-         * @param logText
-         * @returns {boolean}
-         */
-        beautylogNode.ok = function(logText) {
-            return beautylogNode.log(logText, 'ok');
-        };
+/**
+ * logs an 'OK!' message to console
+ * @param logText
+ * @returns {boolean}
+ */
+export let ok = function(logText) {
+    return log(logText, 'ok');
+};
 
-        /**
-         * logs a success to console
-         * @param logText string to log as error
-         * @returns {boolean}
-         */
-        beautylogNode.success = function(logText) {
-            return beautylogNode.log(logText, 'success');
-        };
+/**
+ * logs a success to console
+ * @param logText string to log as error
+ * @returns {boolean}
+ */
+export let success = function(logText) {
+    return log(logText, 'success');
+};
 
-        /**
-         * logs a 'warn:' message to console
-         * @param logText string to log as error
-         * @returns {boolean}
-         */
-        beautylogNode.warn = function(logText) {
-            return beautylogNode.log(logText, 'warn');
-        };
-
-        beautylogNode.table = BeautylogNodeTable.init();
-
-        return beautylogNode;
-    }
-}
+/**
+ * logs a 'warn:' message to console
+ * @param logText string to log as error
+ * @returns {boolean}
+ */
+export let warn = function(logText) {
+    return log(logText, 'warn');
+};

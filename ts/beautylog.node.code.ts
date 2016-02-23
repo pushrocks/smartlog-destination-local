@@ -1,7 +1,7 @@
 /// <reference path="./typings/main.d.ts" />
 
+import plugins = require("./beautylog.plugins");
 var codeFunction = function(codeString,options?){
-    let hlight = require("hlight");
     var codeSnippet = {
         source:codeString,
         highlighted:"default"
@@ -11,7 +11,7 @@ var codeFunction = function(codeString,options?){
         return;
     };
     if (typeof options != "undefined"){
-        codeSnippet.highlighted = hlight(codeSnippet.source,options.language);
+        codeSnippet.highlighted = plugins.hlight(codeSnippet.source,options.language);
         //console.log(codeSnippet.highlighted)
     }
 };

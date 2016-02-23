@@ -1,8 +1,8 @@
 /// <reference path="./typings/main.d.ts" />
 
-import log = require("./beautylog.node.log");
+export import log = require("./beautylog.node.log");
 export import table = require("./beautylog.node.table");
-import code = require("./beautylog.node.code");
+export import code = require("./beautylog.node.code");
 import figletModule = require("./beautylog.node.figlet");
 
 export let figlet = figletModule.figlet;

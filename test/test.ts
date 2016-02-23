@@ -1,6 +1,6 @@
 /// <reference path="../ts/typings/main.d.ts" />
 var smartenv = require("smartenv");
-var beautylog = require('../index.js');
+var beautylog = require('../dist/index.js');
 
 describe("beautylog",function(){
     describe(".log(message,logtype)",function(){

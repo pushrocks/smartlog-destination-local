@@ -2,7 +2,7 @@
   "name": "beautylog",
   "version": "3.1.0",
   "description": "beautiful logging",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "(npmts)",
     "testbrowser": "(npm test) && (node testbrowser.js)",

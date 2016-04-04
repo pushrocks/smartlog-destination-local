@@ -1,7 +1,7 @@
 test/
 ts/
+ts/typings/
 .idea/
 node_modules/
 coverage/
-
-ts/typings/
+docs/

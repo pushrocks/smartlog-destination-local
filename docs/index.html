@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#dir">dir</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#info">info</a></li><li><a href="global.html#logFunction">logFunction</a></li><li><a href="global.html#ok">ok</a></li><li><a href="global.html#success">success</a></li><li><a href="global.html#warn">warn</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>beautylog</h1><p>beautiful logging</p>
+<h2>Status</h2><p><a href="https://travis-ci.org/pushrocks/beautylog"><img src="https://travis-ci.org/pushrocks/beautylog.svg?branch=v0.0.9" alt="Build Status"></a>
+<a href="https://david-dm.org/pushrocks/beautylog"><img src="https://david-dm.org/pushrocks/beautylog.svg" alt="Dependency Status"></a>
+<a href="https://www.bithound.io/github/pushrocks/beautylog/master/dependencies/npm"><img src="https://www.bithound.io/github/pushrocks/beautylog/badges/dependencies.svg" alt="bitHound Dependencies"></a>
+<a href="https://www.bithound.io/github/pushrocks/beautylog"><img src="https://www.bithound.io/github/pushrocks/beautylog/badges/score.svg" alt="bitHound Score"></a>
+<a href="https://coveralls.io/github/pushrocks/beautylog?branch=greenkeeper-npmts-2.1.10"><img src="https://coveralls.io/repos/github/pushrocks/beautylog/badge.svg?branch=greenkeeper-npmts-2.1.10" alt="Coverage Status"></a></p>
+<h2>Usage</h2><pre class="prettyprint source lang-javascript"><code>
+### Simple Logging
+var bl = require('beautylog'); //for use in OS console environment AND browser console
+
+
+bl.log('some log message'); //normal console log message
+bl.success('some success message'); //success console log message
+bl.error('some error message'); //error console log message
+
+//alternatively you can use a logType parameter
+bl.log('some log message','normal');
+bl.log('some success message','success');
+bl.log('some error message','error');</code></pre><p>The plugin produces beautiful output like this:
+<img src="https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png" alt="console.png"></p>
+<h3>Code Highlighting</h3><h3>Console Tables</h3><p>beautylog allows displaying data in nice tables for better overview.</p>
+<p>There are different types of tables.</p>
+<h4>Custom</h4><pre class="prettyprint source lang-javascript"><code>var bl = require('beautylog')(&quot;os&quot;); //for use in OS console environment
+var myTable = bl.table.new(&quot;custom&quot;,[&quot;Heading1&quot;.blue,&quot;Heading2&quot;.blue,&quot;Heading3&quot;.blue]); // type &quot;custom&quot;
+myTable.push([&quot;check 1&quot;,&quot;success&quot;]); // adds a row the myTable
+myTable.push([&quot;check 2&quot;,&quot;error&quot;]); // adds a row the myTable
+myTable.push([&quot;check 3&quot;,&quot;error&quot;]); // adds a row the myTable
+myTable.print(); //prints myTable to the console</code></pre><h4>Checks</h4><pre class="prettyprint source lang-javascript"><code>var bl = require('beautylog')(&quot;os&quot;); //for use in OS console environment
+var myTable = bl.table.new(&quot;checks&quot;); // type checks
+myTable.push([&quot;check 1&quot;,&quot;success&quot;]); // adds a row the myTable
+myTable.push([&quot;check 2&quot;,&quot;error&quot;]); // adds a row the myTable
+myTable.push([&quot;check 3&quot;,&quot;error&quot;]); // adds a row the myTable
+myTable.print(); //prints myTable to the console</code></pre><p>The table from the code with type &quot;checks&quot; above looks like this:
+<img src="https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png" alt="table.png"></p></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+		on 2016-04-04T22:36:17+02:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
+</body>
+</html>

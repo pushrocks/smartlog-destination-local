@@ -2,9 +2,9 @@
 
 export import log = require("./beautylog.node.log");
 export import table = require("./beautylog.node.table");
-export import code = require("./beautylog.node.code");
-import figletModule = require("./beautylog.node.figlet");
 
+//handle figlet
+import figletModule = require("./beautylog.node.figlet");
 export let figlet = figletModule.figlet;
 export let figletSync = figletModule.figletSync;
 /**

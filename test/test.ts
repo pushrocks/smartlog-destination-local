@@ -72,17 +72,6 @@ describe("beautylog",function(){
             beautylog.figletSync("Sync!",{font:"Star Wars",color:"blue"});
         })
     });
-    describe(".code",function(){
-        it("should highlight code",function(){
-            this.timeout(10000);
-            beautylog.code(
-                "var test = 3;\nfunction(){\n  var hello = \"super\"\n};\nvar test;",
-                {
-                    language:"javascript"
-                }
-            );
-        })
-    })
 });
 
 

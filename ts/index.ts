@@ -1,9 +1,10 @@
 /// <reference path="./typings/main.d.ts" />
 
-import plugins = require("./beautylog.plugins");
-import BeautylogNode = require("./beautylog.node");
-import BeautylogBrowser = require("./beautylog.browser");
-var beautylog;
+import * as plugins from "./beautylog.plugins";
+import * as BeautylogNode from "./beautylog.node";
+import * as BeautylogBrowser from "./beautylog.browser";
+
+let beautylog;
 switch(plugins.smartenv.getEnv().runtimeEnv) {
     case "node":
         beautylog = BeautylogNode;

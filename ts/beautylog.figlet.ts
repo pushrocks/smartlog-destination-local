@@ -5,6 +5,7 @@ var defaultOptions = {
     color: "green",
     cb: function(){}
 };
+
 export var figlet = function(textArg:string,optionsArg?){
     var done = plugins.q.defer();
     var mergeOptions = plugins.lodash.cloneDeep(defaultOptions);
@@ -25,6 +26,7 @@ export var figlet = function(textArg:string,optionsArg?){
     });
     return done.promise;
 };
+
 export var figletSync = function(textArg:string,optionsArg?){
     var mergeOptions = plugins.lodash.cloneDeep(defaultOptions);
     var options = plugins.lodash.assign(mergeOptions,optionsArg);

@@ -1,6 +1,6 @@
 {
   "name": "beautylog",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "beautiful logging, TypeScript ready",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

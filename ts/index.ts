@@ -6,31 +6,13 @@ import * as BeautylogLog from "./beautylog.log";
 import * as BeautylogFiglet from "./beautylog.figlet"
 import * as BeautylogTable from "./beautylog.table";
 
-let beautylog = {
-    log: BeautylogLog.log,
-    info: BeautylogLog.info,
-    ok: BeautylogLog.ok,
-    success: BeautylogLog.success,
-    warn: BeautylogLog.warn,
-    error: BeautylogLog.error,
-    dir: BeautylogLog.dir,
-    figlet: BeautylogFiglet.figlet,
-    figletSync: BeautylogFiglet.figletSync,
-    table: BeautylogTable.table
-};
-
-
-
-/*switch(plugins.smartenv.getEnv().runtimeEnv) {
-    case "node":
-        beautylog = BeautylogNode;
-        break;
-    case "browser":
-        beautylog = BeautylogBrowser;
-        break;
-    default:
-        console.log("something is strange about the platform in which you try to use beautylog");
-        break;
-}*/
-
-export = beautylog;
+export let log =  BeautylogLog.log;
+export let info =  BeautylogLog.info;
+export let ok =  BeautylogLog.ok;
+export let success =  BeautylogLog.success;
+export let warn =  BeautylogLog.warn;
+export let error =  BeautylogLog.error;
+export let dir =  BeautylogLog.dir;
+export let figlet =  BeautylogFiglet.figlet;
+export let figletSync =  BeautylogFiglet.figletSync;
+export let table =  BeautylogTable.table

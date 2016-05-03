@@ -103,12 +103,4 @@ let logBrowser = function(logText,logType){
                 console.log('unknown logType for "' + logText + '"');
                 break;
         }
-    
-        
-    
-        
-    
-        
-    
-        
 };

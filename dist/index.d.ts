@@ -1,16 +1,13 @@
 import * as classes from "./beautylog.classes";
-declare let beautylog: {
-    log: (logText?: string, logType?: string) => void;
-    info: (logText: any) => void;
-    ok: (logText: any) => void;
-    success: (logText: any) => void;
-    warn: (logText: any) => void;
-    error: (logText: any) => void;
-    dir: (logText: any) => void;
-    figlet: (textArg: string, optionsArg?: any) => any;
-    figletSync: (textArg: string, optionsArg?: any) => boolean;
-    table: {
-        new: (typeArg: string, tableHeadArrayArg?: any) => classes.ConsoleTable;
-    };
+export declare let log: (logText?: string, logType?: string) => void;
+export declare let info: (logText: any) => void;
+export declare let ok: (logText: any) => void;
+export declare let success: (logText: any) => void;
+export declare let warn: (logText: any) => void;
+export declare let error: (logText: any) => void;
+export declare let dir: (logText: any) => void;
+export declare let figlet: (textArg: string, optionsArg?: any) => any;
+export declare let figletSync: (textArg: string, optionsArg?: any) => boolean;
+export declare let table: {
+    new: (typeArg: string, tableHeadArrayArg?: any) => classes.ConsoleTable;
 };
-export = beautylog;

@@ -10,7 +10,8 @@ if (plugins.smartenv.getEnv().isNode){
         cliTable:  require("cli-table2"),
         colors: require("colors"),
         clc: require("cli-color"),
-        figlet: require("figlet")
+        figlet: require("figlet"),
+        ora: require("ora")
     });
 }
 export = plugins;

@@ -1,6 +1,5 @@
 /// <reference path="../ts/typings/main.d.ts" />
-var smartenv = require("smartenv");
-var beautylog = require('../dist/index.js');
+import beautylog = require('../dist/index.js');
 
 describe("beautylog",function(){
     describe(".log(message,logtype)",function(){
@@ -27,6 +26,16 @@ describe("beautylog",function(){
             beautylog.error('beautylog.error(), with normal logText, without logType');
         });
     });
+    describe(".figlet",function(){
+        it("should print nice fonts to console in yellow",function(done){
+            beautylog.figlet("Async!",{font:"Star Wars",color:"yellow"}).then(done);
+        })
+    });
+    describe(".figletSync",function(){
+        it("should print nice fonts to console in yellow",function(){
+            beautylog.figletSync("Sync!",{font:"Star Wars",color:"blue"});
+        })
+    });
     describe(".info(message)",function(){
         it("should display a purple info message",function(){
             beautylog.info('beautylog.dir(), with normal logText, without logType');
@@ -35,6 +44,27 @@ describe("beautylog",function(){
     describe(".ok(message)",function(){
         it("should display a green ok message",function(){
             beautylog.ok('beautylog.ok(), with normal logText, without logType');
+        });
+    });
+    describe(".ora(text,color)",function(){
+        it("should display, update, and end a message",function(done){
+            this.timeout(10000);
+            let testOra = beautylog.ora("This is a test text","green");
+            setTimeout(function(){
+                testOra.text("updated text!");
+                setTimeout(function(){
+                    testOra.endOk("Allright, ora works!");
+                    done();
+                },2000);
+            },2000)
+        });
+        it("should display an error message when ended with error",function(done){
+            this.timeout(10000);
+            let testOra = beautylog.ora("This is another test text","green");
+            setTimeout(function(){
+                testOra.endError("Allright, ora displays an error!");
+                done();
+            },2000)
         });
     });
     describe(".success(message)",function(){
@@ -50,27 +80,17 @@ describe("beautylog",function(){
     describe(".table",function(){
         it("should print a nice table",function(){
             (function(){
-                var testTable1 = beautylog.table.new("checks");
+                var testTable1 = beautylog.table("checks");
                 testTable1.push(['check1','success']);
                 testTable1.push(['check2','error']);
                 testTable1.push(['check3','error']);
                 testTable1.print();
 
-                var testTable2 = beautylog.table.new("custom",["Column1".red,"Column2".blue,"Column3".cyan]);
+                var testTable2 = beautylog.table("custom",["Column1".red,"Column2".blue,"Column3".cyan]);
                 testTable2.push(["Hey","this","works"]);
                 testTable2.print();
             })();
         });
-    });
-    describe(".figlet",function(){
-        it("should print nice fonts to console in yellow",function(done){
-            beautylog.figlet("Async!",{font:"Star Wars",color:"yellow"}).then(done);
-        })
-    });
-    describe(".figletSync",function(){
-        it("should print nice fonts to console in yellow",function(){
-            beautylog.figletSync("Sync!",{font:"Star Wars",color:"blue"});
-        })
     });
 });
 

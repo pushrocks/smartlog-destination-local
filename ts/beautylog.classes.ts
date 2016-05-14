@@ -7,6 +7,6 @@ export let table = function(tableTypeArg:string,tableHeadArrayArg?:string[]){
     return new Table(tableTypeArg,tableHeadArrayArg);
 }
 
-export let ora = function(textArg:string,colorArg:string){
-    return new Ora(textArg,colorArg);
+export let ora = function(textArg:string,colorArg:string,startArg?:boolean){
+    return new Ora(textArg,colorArg,startArg);
 }

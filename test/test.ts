@@ -49,9 +49,10 @@ describe("beautylog",function(){
     describe(".ora(text,color)",function(){
         it("should display, update, and end a message",function(done){
             this.timeout(10000);
-            let testOra = beautylog.ora("This is a test text","green");
+            let testOra = beautylog.ora("This is a test text","green",true);
             setTimeout(function(){
                 testOra.text("updated text!");
+                testOra.log("an intermediate log message","info");
                 setTimeout(function(){
                     testOra.endOk("Allright, ora works!");
                     done();

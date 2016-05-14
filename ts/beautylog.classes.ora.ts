@@ -5,16 +5,21 @@ import * as log from "./beautylog.log";
 export class Ora {
     private _oraObject;
     state:string;
-    constructor(textArg:string,colorArg:string){
+    constructor(textArg:string,colorArg:string,startArg:boolean = false){
         this._oraObject = plugins.ora({
             spinner:"dots",
             text:textArg,
             color:colorArg
         });
-        this._oraObject.start();
+        
+        startArg ? this._oraObject.start() : void(0);
     }
     text(textArg){
         this._oraObject.text = textArg;
+    };
+    
+    start(){
+        this._oraObject.start();
     };
     end(){
         this._oraObject.stop();
@@ -28,4 +33,14 @@ export class Ora {
         this.end();
         log.error(textArg);
     };
+    stop(){ // alias for end
+        this.end();
+    }
+    
+    // log methods that play nice with ora
+    log(logText:string,logType:string){
+        this.stop();
+        log.log(logText,logType);
+        this.start();
+    }
 }

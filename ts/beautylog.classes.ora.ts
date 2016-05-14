@@ -18,9 +18,9 @@ export class Ora {
         this._oraObject.text = textArg;
     };
     
-    start(textArg:string,colorArg:string){
-        this._oraObject.text = textArg;
-        this._oraObject.color = colorArg;
+    start(textArg?:string,colorArg?:string){
+        if(textArg) this._oraObject.text = textArg;
+        if(colorArg) this._oraObject.color = colorArg;
         this._oraObject.start();
     };
     end(){

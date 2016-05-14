@@ -49,7 +49,7 @@ describe("beautylog",function(){
     describe(".ora(text,color)",function(){
         it("should display, update, and end a message",function(done){
             this.timeout(10000);
-            let testOra = beautylog.ora("This is a test text","green",true);
+            let testOra = new beautylog.Ora("This is a test text","green",true);
             setTimeout(function(){
                 testOra.text("updated text!");
                 testOra.log("an intermediate log message","info");
@@ -61,7 +61,7 @@ describe("beautylog",function(){
         });
         it("should display an error message when ended with error",function(done){
             this.timeout(10000);
-            let testOra = beautylog.ora("This is another test text","green");
+            let testOra = new beautylog.Ora("This is another test text","green");
             setTimeout(function(){
                 testOra.endError("Allright, ora displays an error!");
                 done();
@@ -78,16 +78,16 @@ describe("beautylog",function(){
             beautylog.warn('beautylog.warn(), with normal logText, without logType');
         });
     });
-    describe(".table",function(){
+    describe(".Table",function(){
         it("should print a nice table",function(){
             (function(){
-                var testTable1 = beautylog.table("checks");
+                var testTable1 = new beautylog.Table("checks");
                 testTable1.push(['check1','success']);
                 testTable1.push(['check2','error']);
                 testTable1.push(['check3','error']);
                 testTable1.print();
 
-                var testTable2 = beautylog.table("custom",["Column1".red,"Column2".blue,"Column3".cyan]);
+                var testTable2 = new beautylog.Table("custom",["Column1".red,"Column2".blue,"Column3".cyan]);
                 testTable2.push(["Hey","this","works"]);
                 testTable2.print();
             })();

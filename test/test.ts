@@ -53,6 +53,7 @@ describe("beautylog",function(){
             setTimeout(function(){
                 testOra.text("updated text!");
                 testOra.log("an intermediate log message","info");
+                beautylog.info("another log message that uses the normal log function");
                 setTimeout(function(){
                     testOra.endOk("Allright, ora works!");
                     done();

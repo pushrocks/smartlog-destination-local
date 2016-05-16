@@ -1,3 +1,5 @@
+export declare let isOraActive: boolean;
+export declare let activeOra: Ora;
 export declare class Ora {
     private _oraObject;
     state: string;

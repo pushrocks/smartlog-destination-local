@@ -1,6 +1,7 @@
 /// <reference path="./typings/main.d.ts" />
 
 import plugins = require("./beautylog.plugins");
+import {isOraActive,activeOra} from "./beautylog.classes.ora";
 
 var localBl = {
     dirPrefix: plugins.clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ',
@@ -21,7 +22,11 @@ var localBl = {
 export let log = function(logText:string = 'empty log', logType:string = 'normal') {
     switch(plugins.smartenv.getEnv().runtimeEnv) {
     case "node":
-        logNode(logText,logType);
+        if (isOraActive){
+            activeOra.log(logText,logType);
+        } else {
+            logNode(logText,logType);
+        }
         break;
     case "browser":
         logBrowser(logText,logType);
@@ -32,7 +37,7 @@ export let log = function(logText:string = 'empty log', logType:string = 'normal
 }
 };
 
-let logNode = function(logText:string,logType:string){
+export let logNode = function(logText:string,logType:string){
     try {
         switch (logType) {
             case 'dir':

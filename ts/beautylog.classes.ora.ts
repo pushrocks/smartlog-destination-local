@@ -1,6 +1,9 @@
 /// <reference path="./typings/main.d.ts" />
 import * as plugins from "./beautylog.plugins";
-import * as log from "./beautylog.log";
+import {logNode} from "./beautylog.log.helpers";
+
+export let isOraActive:boolean = false; // when an Ora is active (e.g. start()) this is true;
+export let activeOra:Ora; //points to the currently active Ora object
 
 export class Ora {
     private _oraObject;
@@ -21,19 +24,23 @@ export class Ora {
     start(textArg?:string,colorArg?:string){
         if(textArg) this._oraObject.text = textArg;
         if(colorArg) this._oraObject.color = colorArg;
+        activeOra = this;
+        isOraActive = true;
         this._oraObject.start();
     };
     end(){
         this._oraObject.stop();
         this._oraObject.clear();
+        activeOra = undefined;
+        isOraActive = false;
     }
     endOk(textArg){
         this.end();
-        log.ok(textArg);
+        logNode(textArg,"ok");
     };
     endError(textArg){
         this.end();
-        log.error(textArg);
+        logNode(textArg,"error");
     };
     stop(){ // alias for end
         this.end();
@@ -42,7 +49,7 @@ export class Ora {
     // log methods that play nice with ora
     log(logText:string,logType:string){
         this.stop();
-        log.log(logText,logType);
+        logNode(logText,logType);
         this.start();
     }
 }

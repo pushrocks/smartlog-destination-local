@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+/// <reference path="./typings/index.d.ts" />
 import plugins = require("./beautylog.plugins");
 import {activeOra,oraActive} from "./beautylog.classes.ora";
 let nativeLog = console.log;

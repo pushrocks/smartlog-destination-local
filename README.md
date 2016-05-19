@@ -31,7 +31,7 @@ The plugin produces beautiful output like this:
 ![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)
 
 ### Ora Integration
-beautylog wraps the excellent ora module from npm to better work with beautylog. In general that means that you can log persistent messages WHILE you are actually having an active Ora object. beautylog handles all the fuss for you.
+beautylog wraps the excellent [ora module](https://www.npmjs.com/package/ora) from npm to better work with beautylog. In general that means that you can log persistent messages WHILE you are actually having an active Ora object. beautylog handles all the fuss for you.
 
 ```typescript
 var myOra = new beautylog.Ora("my awesome text", "blue");

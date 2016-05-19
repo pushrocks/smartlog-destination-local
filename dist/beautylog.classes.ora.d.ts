@@ -1,4 +1,4 @@
-export declare let isOraActive: boolean;
+export declare let oraActive: boolean;
 export declare let activeOra: Ora;
 export declare class Ora {
     private _oraObject;
@@ -9,6 +9,7 @@ export declare class Ora {
     end(): void;
     endOk(textArg: any): void;
     endError(textArg: any): void;
+    pause(): void;
     stop(): void;
     log(logText: string, logType: string): void;
 }

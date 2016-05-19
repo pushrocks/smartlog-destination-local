@@ -2,7 +2,7 @@
 import * as plugins from "./beautylog.plugins";
 import {logNode} from "./beautylog.log.helpers";
 
-export let isOraActive:boolean = false; // when an Ora is active (e.g. start()) this is true;
+export let oraActive:boolean = false; // when an Ora is active (e.g. start()) this is true;
 export let activeOra:Ora; //points to the currently active Ora object
 
 export class Ora {
@@ -25,14 +25,14 @@ export class Ora {
         if(textArg) this._oraObject.text = textArg;
         if(colorArg) this._oraObject.color = colorArg;
         activeOra = this;
-        isOraActive = true;
+        oraActive = true;
         this._oraObject.start();
     };
     end(){
         this._oraObject.stop();
         this._oraObject.clear();
         activeOra = undefined;
-        isOraActive = false;
+        oraActive = false;
     }
     endOk(textArg){
         this.end();
@@ -42,6 +42,9 @@ export class Ora {
         this.end();
         logNode(textArg,"error");
     };
+    pause(){
+        this._oraObject.stop();
+    }
     stop(){ // alias for end
         this.end();
     }

@@ -37,6 +37,7 @@ beautylog wraps the excellent ora module from npm to better work with beautylog.
 var myOra = new beautylog.Ora("my awesome text", "blue");
 myOra.start();
 beautylog.info("some persistent text") //does not disturb myOra
+console.log("sometext or anything else like an logable object"); // yep, beautylog monkeypatches console.log so this works seamlessly
 myOra.text("some updated text");
 myOra.stop();
 ```

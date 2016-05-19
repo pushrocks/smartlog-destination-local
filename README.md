@@ -3,6 +3,7 @@ beautiful logging, TypeScript ready
 
 ## Status
 [![Build Status](https://travis-ci.org/pushrocks/beautylog.svg?branch=v0.0.9)](https://travis-ci.org/pushrocks/beautylog)
+[![Build status](https://ci.appveyor.com/api/projects/status/tglk8r5cwou65ljh/branch/master?svg=true)](https://ci.appveyor.com/project/philkunz/beautylog/branch/master)
 [![Dependency Status](https://david-dm.org/pushrocks/beautylog.svg)](https://david-dm.org/pushrocks/beautylog)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/beautylog/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/beautylog/master/dependencies/npm)
 [![bitHound Score](https://www.bithound.io/github/pushrocks/beautylog/badges/score.svg)](https://www.bithound.io/github/pushrocks/beautylog)
@@ -10,7 +11,7 @@ beautiful logging, TypeScript ready
 
 ## Usage
 
-```javascript
+```typescript
 var beautylog = require("beautylog"); //for use in OS console environment AND browser console
 
 beautylog.log("some log message"); // normal console log message
@@ -29,9 +30,16 @@ beautylog.log("some error message","error");
 The plugin produces beautiful output like this:
 ![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)
 
-### Code Highlighting
+### Ora Integration
+beautylog wraps the excellent ora module from npm to better work with beautylog. In general that means that you can log persistent messages WHILE you are actually having an active Ora object. beautylog handles all the fuss for you.
 
-
+```typescript
+var myOra = new beautylog.Ora("my awesome text", "blue");
+myOra.start();
+beautylog.info("some persistent text") //does not disturb myOra
+myOra.text("some updated text");
+myOra.stop();
+```
 
 ### Console Tables
 beautylog allows displaying data in nice tables for better overview.
@@ -65,3 +73,7 @@ myTable.print(); //prints myTable to the console
 The table from the code with type "checks" above looks like this:
 ![table.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png)
 
+## About the authors:
+[![Project Phase](https://mediaserve.lossless.digital/lossless.com/img/createdby_github.svg)](https://lossless.com/)
+
+[![PayPal](https://img.shields.io/badge/Support%20us-PayPal-blue.svg)](https://paypal.me/lossless)

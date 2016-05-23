@@ -1,3 +1,4 @@
+import "typings-global";
 export { Table } from "./beautylog.classes.table";
 export { Ora } from "./beautylog.classes.ora";
 export declare let dir: (logText: any) => void;

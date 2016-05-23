@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global";
 
 import * as plugins from "./beautylog.plugins";
 import {beautyConsole} from "./beautylog.console";

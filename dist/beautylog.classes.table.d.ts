@@ -1,3 +1,4 @@
+import "typings-global";
 export declare class Table {
     tableHead: string[];
     rows: any;

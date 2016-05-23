@@ -1,3 +1,4 @@
+import "typings-global";
 export declare let lodash: any;
 export declare let smartenv: any;
 export declare let q: any;

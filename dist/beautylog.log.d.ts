@@ -1,3 +1,4 @@
+import "typings-global";
 export { log } from "./beautylog.log.helpers";
 /**
  * logs an info to console

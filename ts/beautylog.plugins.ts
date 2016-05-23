@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global";
 
 export let lodash = require("lodash");
 export let smartenv = require("smartenv");

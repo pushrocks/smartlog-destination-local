@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global";
 import plugins = require("./beautylog.plugins");
 import {activeOra,oraActive} from "./beautylog.classes.ora";
 let nativeLog = console.log;

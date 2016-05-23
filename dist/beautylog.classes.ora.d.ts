@@ -1,3 +1,4 @@
+import "typings-global";
 export declare let oraActive: boolean;
 export declare let activeOra: Ora;
 export declare class Ora {

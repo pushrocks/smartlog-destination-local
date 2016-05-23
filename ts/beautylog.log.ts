@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global";
 
 import {log} from "./beautylog.log.helpers";
 export {log} from "./beautylog.log.helpers";

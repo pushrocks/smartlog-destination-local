@@ -1,4 +1,4 @@
-/// <reference path="../ts/typings/main.d.ts" />
+import "typings-test";
 import beautylog = require('../dist/index.js');
 
 describe("beautylog",function(){

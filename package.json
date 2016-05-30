@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pushrocks/beautylog.git"
+    "url": "https://gitlab.com/pushrocks/beautylog.git"
   },
   "keywords": [
     "log",
@@ -27,9 +27,9 @@
   "author": "Smart Coordination GmbH <office@push.rocks> (https://push.rocks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pushrocks/beautylog/issues"
+    "url": "https://gitlab.com/pushrocks/beautylog/issues"
   },
-  "homepage": "https://github.com/pushrocks/beautylog",
+  "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
     "cli-color": "^1.1.0",
     "cli-table2": "^0.2.0",

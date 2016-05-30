@@ -2,8 +2,8 @@
 beautiful logging, TypeScript ready
 
 ## Status
-[![Build Status](https://travis-ci.org/pushrocks/beautylog.svg?branch=master)](https://travis-ci.org/pushrocks/beautylog)
-[![Build status](https://ci.appveyor.com/api/projects/status/tglk8r5cwou65ljh/branch/master?svg=true)](https://ci.appveyor.com/project/philkunz/beautylog/branch/master)
+[![build status](https://gitlab.com/pushrocks/beautylog/badges/master/build.svg)](https://gitlab.com/pushrocks/beautylog/commits/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/dfk55r5ig039a1ew/branch/master?svg=true)](https://ci.appveyor.com/project/philkunz/beautylog/branch/master)
 [![Dependency Status](https://david-dm.org/pushrocks/beautylog.svg)](https://david-dm.org/pushrocks/beautylog)
 [![bitHound Dependencies](https://www.bithound.io/github/pushrocks/beautylog/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/beautylog/master/dependencies/npm)
 [![bitHound Score](https://www.bithound.io/github/pushrocks/beautylog/badges/score.svg)](https://www.bithound.io/github/pushrocks/beautylog)

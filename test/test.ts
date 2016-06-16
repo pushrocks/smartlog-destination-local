@@ -41,6 +41,16 @@ describe("beautylog",function(){
             beautylog.info('beautylog.dir(), with normal logText, without logType');
         });
     });
+    describe(".logReduced(message)",function(){
+        it("should only log two messages",function(){
+            beautylog.logReduced("Message 1");
+            beautylog.logReduced("Message 1");
+            beautylog.logReduced("Message 1");
+            beautylog.logReduced("Message 1");
+            beautylog.logReduced("Message 2");
+            beautylog.logReduced("Message 2");
+        })
+    })
     describe(".ok(message)",function(){
         it("should display a green ok message",function(){
             beautylog.ok('beautylog.ok(), with normal logText, without logType');

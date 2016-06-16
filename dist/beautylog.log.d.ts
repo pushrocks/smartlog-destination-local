@@ -36,4 +36,13 @@ export declare let error: (logText: any) => void;
  * @returns {boolean}
  */
 export declare let dir: (logText: any) => void;
+/**
+ * creates a new empty line
+ * @param linesArg
+ * @returns void
+ */
 export declare let newLine: (linesArg?: number) => void;
+/**
+ * logs a reduced log that only logs changes of consequential log messages
+ */
+export declare let logReduced: (logTextArg: string, repeatEveryTimesArg?: number) => void;

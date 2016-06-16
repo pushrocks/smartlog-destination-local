@@ -36,3 +36,4 @@ export declare let error: (logText: any) => void;
  * @returns {boolean}
  */
 export declare let dir: (logText: any) => void;
+export declare let newLine: (linesArg?: number) => void;

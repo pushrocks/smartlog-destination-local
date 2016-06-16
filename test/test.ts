@@ -1,5 +1,5 @@
 import "typings-test";
-import beautylog = require('../dist/index.js');
+import beautylog = require('../dist/index');
 
 describe("beautylog",function(){
     describe(".log(message,logtype)",function(){
@@ -44,6 +44,11 @@ describe("beautylog",function(){
     describe(".ok(message)",function(){
         it("should display a green ok message",function(){
             beautylog.ok('beautylog.ok(), with normal logText, without logType');
+        });
+    });
+    describe(".newLine(number)",function(){
+        it("create specified amount of new lines",function(){
+            beautylog.newLine(1);
         });
     });
     describe(".ora(text,color)",function(){

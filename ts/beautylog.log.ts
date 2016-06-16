@@ -8,7 +8,7 @@ export {log} from "./beautylog.log.helpers";
  * @param logText
  * @returns {boolean}
  */
-export let info = function (logText) {
+export let info = (logText) => {
     return log(logText, 'info');
 };
 
@@ -17,7 +17,7 @@ export let info = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-export let ok = function (logText) {
+export let ok = (logText) => {
     return log(logText, 'ok');
 };
 
@@ -26,7 +26,7 @@ export let ok = function (logText) {
  * @param logText string to log as error
  * @returns {boolean}
  */
-export let success = function (logText) {
+export let success = (logText) => {
     return log(logText, 'success');
 };
 
@@ -35,7 +35,7 @@ export let success = function (logText) {
  * @param logText string to log as error
  * @returns {boolean}
  */
-export let warn = function (logText) {
+export let warn = (logText) => {
     return log(logText, 'warn');
 };
 
@@ -44,7 +44,7 @@ export let warn = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-export let error = function (logText) {
+export let error = (logText) => {
     return log(logText, 'error');
 };
 
@@ -53,6 +53,12 @@ export let error = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-export let dir = function (logText) {
+export let dir = (logText) => {
     return log(logText, 'dir');
 };
+
+export let newLine = (linesArg:number = 1) => {
+    for(let i = 0; i < linesArg;i++){
+        console.log("\n");
+    }
+}

@@ -3,7 +3,7 @@ import "typings-global";
 import * as plugins from "./beautylog.plugins";
 import {beautyConsole} from "./beautylog.console";
 
-var localBl = {
+let localBl = {
     dirPrefix: plugins.clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ',
     errorPrefix: ' Error: '.bgRed.white.bold + ' ',
     infoPrefix: plugins.clc.bgXterm(198).xterm(231).bold(' INFO ') + ' ',

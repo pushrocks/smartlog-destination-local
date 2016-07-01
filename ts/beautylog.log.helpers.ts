@@ -1,5 +1,3 @@
-import "typings-global";
-
 import * as plugins from "./beautylog.plugins";
 import {beautyConsole} from "./beautylog.console";
 

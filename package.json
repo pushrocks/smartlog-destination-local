@@ -31,8 +31,8 @@
   },
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
-    "@types/colors": "^0.6.22-alpha",
-    "@types/q": "0.0.21-alpha",
+    "@types/colors": "*",
+    "@types/q": "*",
     "cli-color": "^1.1.0",
     "cli-table2": "^0.2.0",
     "colors": "1.1.2",

@@ -64,10 +64,10 @@ myTable.print(); //prints myTable to the console
 ```javascript
 var beautylog = require("beautylog");
 var myTable = beautylog.table.new("checks"); // type checks
-myTable.push(["check 1","success"]); // adds a row the myTable
-myTable.push(["check 2","error"]); // adds a row the myTable
-myTable.push(["check 3","error"]); // adds a row the myTable
-myTable.print(); //prints myTable to the console
+myTable.push(["check 1","success"]); // adds a row to myTable
+myTable.push(["check 2","error"]); // adds a row to myTable
+myTable.push(["check 3","error"]); // adds a row to myTable
+myTable.print(); //prints myTable to console
 ```
 
 The table from the code with type "checks" above looks like this:

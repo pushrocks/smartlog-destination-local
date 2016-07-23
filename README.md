@@ -73,6 +73,32 @@ myTable.print(); //prints myTable to console
 The table from the code with type "checks" above looks like this:
 ![table.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png)
 
+## Centralized remote logging
+Beautilog makes it easy to have all your node applications log to a remote location.
+
+Currently supported remote providers:
+
+* loggly.com
+
+```typescript
+beauylog.registerLoggly(
+    token: "your-really-long-input-token",
+    subdomain: "your-subdomain",
+    auth: {
+      username: "your-username",
+      password: "your-password"
+    },
+    // 
+    // Optional: Tag to send with EVERY log message 
+    // 
+    tags: ['global-tag']
+);
+```
+
+> Note: since beautylog monkeypatches all console log methods.
+There is no need to change anything in your code.
+Everything that is getting logged to your console by node will get logged to loggly as well.
+
 ## About the authors:
 [![Project Phase](https://mediaserve.lossless.digital/lossless.com/img/createdby_github.svg)](https://lossless.com/)
 

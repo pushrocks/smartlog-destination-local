@@ -1,9 +1,10 @@
 import "typings-global";
-export declare let lodash: any;
-export declare let smartenv: any;
-export declare let q: any;
+export import lodash = require("lodash");
+export import smartenv = require("smartenv");
+export import q = require("q");
 export declare let cliTable: any;
 export import colors = require("colors");
 export declare let clc: any;
 export declare let figlet: any;
+export import loggly = require("loggly");
 export declare let ora: any;

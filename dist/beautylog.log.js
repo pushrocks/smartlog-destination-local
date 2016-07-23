@@ -1,6 +1,6 @@
 "use strict";
 require("typings-global");
-var beautylog_log_helpers_1 = require("./beautylog.log.helpers");
+const beautylog_log_helpers_1 = require("./beautylog.log.helpers");
 var beautylog_log_helpers_2 = require("./beautylog.log.helpers");
 exports.log = beautylog_log_helpers_2.log;
 /**
@@ -8,7 +8,7 @@ exports.log = beautylog_log_helpers_2.log;
  * @param logText
  * @returns {boolean}
  */
-exports.info = function (logText) {
+exports.info = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'info');
 };
 /**
@@ -16,7 +16,7 @@ exports.info = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-exports.ok = function (logText) {
+exports.ok = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'ok');
 };
 /**
@@ -24,7 +24,7 @@ exports.ok = function (logText) {
  * @param logText string to log as error
  * @returns {boolean}
  */
-exports.success = function (logText) {
+exports.success = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'success');
 };
 /**
@@ -32,7 +32,7 @@ exports.success = function (logText) {
  * @param logText string to log as error
  * @returns {boolean}
  */
-exports.warn = function (logText) {
+exports.warn = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'warn');
 };
 /**
@@ -40,7 +40,7 @@ exports.warn = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-exports.error = function (logText) {
+exports.error = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'error');
 };
 /**
@@ -48,7 +48,7 @@ exports.error = function (logText) {
  * @param logText
  * @returns {boolean}
  */
-exports.dir = function (logText) {
+exports.dir = (logText) => {
     return beautylog_log_helpers_1.log(logText, 'dir');
 };
 /**
@@ -56,17 +56,15 @@ exports.dir = function (logText) {
  * @param linesArg
  * @returns void
  */
-exports.newLine = function (linesArg) {
-    if (linesArg === void 0) { linesArg = 1; }
-    for (var i = 0; i < linesArg; i++) {
+exports.newLine = (linesArg = 1) => {
+    for (let i = 0; i < linesArg; i++) {
         console.log("\n");
     }
 };
 /**
  * logs a reduced log that only logs changes of consequential log messages
  */
-exports.logReduced = function (logTextArg, repeatEveryTimesArg) {
-    if (repeatEveryTimesArg === void 0) { repeatEveryTimesArg = 0; }
+exports.logReduced = (logTextArg, repeatEveryTimesArg = 0) => {
     if (logTextArg == previousMessage && (repeatEveryTimesArg == 0 || sameMessageCounter != repeatEveryTimesArg)) {
         sameMessageCounter++;
     }
@@ -76,6 +74,6 @@ exports.logReduced = function (logTextArg, repeatEveryTimesArg) {
         beautylog_log_helpers_1.log(logTextArg);
     }
 };
-var previousMessage = "";
-var sameMessageCounter = 0;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYmVhdXR5bG9nLmxvZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3RzL2JlYXV0eWxvZy5sb2cudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLFFBQU8sZ0JBQWdCLENBQUMsQ0FBQTtBQUV4QixzQ0FBa0IseUJBQXlCLENBQUMsQ0FBQTtBQUM1QyxzQ0FBa0IseUJBQXlCLENBQUM7QUFBcEMsMENBQW9DO0FBRTVDOzs7O0dBSUc7QUFDUSxZQUFJLEdBQUcsVUFBQyxPQUFPO0lBQ3RCLE1BQU0sQ0FBQywyQkFBRyxDQUFDLE9BQU8sRUFBRSxNQUFNLENBQUMsQ0FBQztBQUNoQyxDQUFDLENBQUM7QUFFRjs7OztHQUlHO0FBQ1EsVUFBRSxHQUFHLFVBQUMsT0FBTztJQUNwQixNQUFNLENBQUMsMkJBQUcsQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQUM7QUFDOUIsQ0FBQyxDQUFDO0FBRUY7Ozs7R0FJRztBQUNRLGVBQU8sR0FBRyxVQUFDLE9BQU87SUFDekIsTUFBTSxDQUFDLDJCQUFHLENBQUMsT0FBTyxFQUFFLFNBQVMsQ0FBQyxDQUFDO0FBQ25DLENBQUMsQ0FBQztBQUVGOzs7O0dBSUc7QUFDUSxZQUFJLEdBQUcsVUFBQyxPQUFPO0lBQ3RCLE1BQU0sQ0FBQywyQkFBRyxDQUFDLE9BQU8sRUFBRSxNQUFNLENBQUMsQ0FBQztBQUNoQyxDQUFDLENBQUM7QUFFRjs7OztHQUlHO0FBQ1EsYUFBSyxHQUFHLFVBQUMsT0FBTztJQUN2QixNQUFNLENBQUMsMkJBQUcsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLENBQUM7QUFDakMsQ0FBQyxDQUFDO0FBRUY7Ozs7R0FJRztBQUNRLFdBQUcsR0FBRyxVQUFDLE9BQU87SUFDckIsTUFBTSxDQUFDLDJCQUFHLENBQUMsT0FBTyxFQUFFLEtBQUssQ0FBQyxDQUFDO0FBQy9CLENBQUMsQ0FBQztBQUVGOzs7O0dBSUc7QUFDUSxlQUFPLEdBQUcsVUFBQyxRQUFtQjtJQUFuQix3QkFBbUIsR0FBbkIsWUFBbUI7SUFDckMsR0FBRyxDQUFBLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxRQUFRLEVBQUMsQ0FBQyxFQUFFLEVBQUMsQ0FBQztRQUM3QixPQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ3RCLENBQUM7QUFDTCxDQUFDLENBQUE7QUFFRDs7R0FFRztBQUNRLGtCQUFVLEdBQUcsVUFBQyxVQUFpQixFQUFDLG1CQUE4QjtJQUE5QixtQ0FBOEIsR0FBOUIsdUJBQThCO0lBQ3JFLEVBQUUsQ0FBQSxDQUFDLFVBQVUsSUFBSSxlQUFlLElBQUksQ0FBQyxtQkFBbUIsSUFBSSxDQUFDLElBQUksa0JBQWtCLElBQUksbUJBQW1CLENBQUMsQ0FBQyxDQUFBLENBQUM7UUFDekcsa0JBQWtCLEVBQUUsQ0FBQztJQUN6QixDQUFDO0lBQUMsSUFBSSxDQUFDLENBQUM7UUFDSixrQkFBa0IsR0FBRyxDQUFDLENBQUM7UUFDdkIsZUFBZSxHQUFHLFVBQVUsQ0FBQztRQUM3QiwyQkFBRyxDQUFDLFVBQVUsQ0FBQyxDQUFDO0lBQ3BCLENBQUM7QUFDTCxDQUFDLENBQUM7QUFDRixJQUFJLGVBQWUsR0FBVSxFQUFFLENBQUM7QUFDaEMsSUFBSSxrQkFBa0IsR0FBVSxDQUFDLENBQUMifQ==
+let previousMessage = "";
+let sameMessageCounter = 0;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYmVhdXR5bG9nLmxvZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3RzL2JlYXV0eWxvZy5sb2cudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLFFBQU8sZ0JBQWdCLENBQUMsQ0FBQTtBQUV4Qix3Q0FBa0IseUJBQXlCLENBQUMsQ0FBQTtBQUM1QyxzQ0FBa0IseUJBQXlCLENBQUM7QUFBcEMsMENBQW9DO0FBRTVDOzs7O0dBSUc7QUFDUSxZQUFJLEdBQUcsQ0FBQyxPQUFPO0lBQ3RCLE1BQU0sQ0FBQywyQkFBRyxDQUFDLE9BQU8sRUFBRSxNQUFNLENBQUMsQ0FBQztBQUNoQyxDQUFDLENBQUM7QUFFRjs7OztHQUlHO0FBQ1EsVUFBRSxHQUFHLENBQUMsT0FBTztJQUNwQixNQUFNLENBQUMsMkJBQUcsQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQUM7QUFDOUIsQ0FBQyxDQUFDO0FBRUY7Ozs7R0FJRztBQUNRLGVBQU8sR0FBRyxDQUFDLE9BQU87SUFDekIsTUFBTSxDQUFDLDJCQUFHLENBQUMsT0FBTyxFQUFFLFNBQVMsQ0FBQyxDQUFDO0FBQ25DLENBQUMsQ0FBQztBQUVGOzs7O0dBSUc7QUFDUSxZQUFJLEdBQUcsQ0FBQyxPQUFPO0lBQ3RCLE1BQU0sQ0FBQywyQkFBRyxDQUFDLE9BQU8sRUFBRSxNQUFNLENBQUMsQ0FBQztBQUNoQyxDQUFDLENBQUM7QUFFRjs7OztHQUlHO0FBQ1EsYUFBSyxHQUFHLENBQUMsT0FBTztJQUN2QixNQUFNLENBQUMsMkJBQUcsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLENBQUM7QUFDakMsQ0FBQyxDQUFDO0FBRUY7Ozs7R0FJRztBQUNRLFdBQUcsR0FBRyxDQUFDLE9BQU87SUFDckIsTUFBTSxDQUFDLDJCQUFHLENBQUMsT0FBTyxFQUFFLEtBQUssQ0FBQyxDQUFDO0FBQy9CLENBQUMsQ0FBQztBQUVGOzs7O0dBSUc7QUFDUSxlQUFPLEdBQUcsQ0FBQyxRQUFRLEdBQVUsQ0FBQztJQUNyQyxHQUFHLENBQUEsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLFFBQVEsRUFBQyxDQUFDLEVBQUUsRUFBQyxDQUFDO1FBQzdCLE9BQU8sQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDdEIsQ0FBQztBQUNMLENBQUMsQ0FBQTtBQUVEOztHQUVHO0FBQ1Esa0JBQVUsR0FBRyxDQUFDLFVBQWlCLEVBQUMsbUJBQW1CLEdBQVUsQ0FBQztJQUNyRSxFQUFFLENBQUEsQ0FBQyxVQUFVLElBQUksZUFBZSxJQUFJLENBQUMsbUJBQW1CLElBQUksQ0FBQyxJQUFJLGtCQUFrQixJQUFJLG1CQUFtQixDQUFDLENBQUMsQ0FBQSxDQUFDO1FBQ3pHLGtCQUFrQixFQUFFLENBQUM7SUFDekIsQ0FBQztJQUFDLElBQUksQ0FBQyxDQUFDO1FBQ0osa0JBQWtCLEdBQUcsQ0FBQyxDQUFDO1FBQ3ZCLGVBQWUsR0FBRyxVQUFVLENBQUM7UUFDN0IsMkJBQUcsQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUNwQixDQUFDO0FBQ0wsQ0FBQyxDQUFDO0FBQ0YsSUFBSSxlQUFlLEdBQVUsRUFBRSxDQUFDO0FBQ2hDLElBQUksa0JBQWtCLEdBQVUsQ0FBQyxDQUFDIn0=

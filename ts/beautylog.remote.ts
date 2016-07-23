@@ -18,14 +18,14 @@ export let remoteLog = (logType: string, logMessage: string) => {
 // Service implementations
 
 let loggly = (optionsArg: {
-    customerTokenArg: string,
-    subdomainArg: string,
+    token: string,
+    subdomain: string,
     appName: string,
     serverName:string
 }) => {
     client = plugins.loggly.createClient({
-        token: optionsArg.customerTokenArg,
-        subdomain: optionsArg.subdomainArg,
+        token: optionsArg.token,
+        subdomain: optionsArg.subdomain,
         tags: [],
         json: true
     });

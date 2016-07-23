@@ -76,8 +76,8 @@ Currently supported remote providers:
 
 ```typescript
 beautylog.remote.loggly({
-    customerTokenArg: "loggly-token",
-    subdomainArg: "loggly-subdomain",
+    token: "loggly-token",
+    subdomain: "loggly-subdomain",
     appName: "some App Name",
     serverName: "some Server Name"
 });

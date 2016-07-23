@@ -9,4 +9,3 @@ export let clc = require("cli-color");
 export let figlet = require("figlet");
 export import loggly = require("loggly");
 export let ora = require("ora");
-export import winstonLoggly = require("winston-loggly-bulk");

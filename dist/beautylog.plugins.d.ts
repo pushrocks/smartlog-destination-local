@@ -8,4 +8,3 @@ export declare let clc: any;
 export declare let figlet: any;
 export import loggly = require("loggly");
 export declare let ora: any;
-export import winstonLoggly = require("winston-loggly-bulk");

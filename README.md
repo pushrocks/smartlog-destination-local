@@ -74,14 +74,14 @@ The table from the code with type "checks" above looks like this:
 ![table.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/table.png)
 
 ## Centralized remote logging
-Beautilog makes it easy to have all your node applications log to a remote location.
+Beautylog makes it easy to have all your node applications log to a remote location.
 
 Currently supported remote providers:
 
 * loggly.com
 
 ```typescript
-beauylog.registerLoggly(
+beautylog.registerLoggly(
     token: "your-really-long-input-token",
     subdomain: "your-subdomain",
     auth: {

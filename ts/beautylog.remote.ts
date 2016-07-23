@@ -2,28 +2,35 @@ import * as plugins from "./beautylog.plugins";
 
 let client;
 let clientData = {
-    serverName:"myServer",
-    applicationName:"myApp",
-    message:"undefined",
-    messageType:"undefined"
+    serverName: "myServer",
+    applicationName: "myApp",
+    message: "undefined",
+    messageType: "undefined"
 }
-export let remoteLog = (logType:string,logMessage:string) => {
+export let remoteLog = (logType: string, logMessage: string) => {
     clientData.messageType = logType;
     clientData.message = logMessage;
-    if (client){
-         client.log(clientData);
+    if (client) {
+        client.log(clientData);
     };
 }
 
 // Service implementations
 
-let loggly = (customerTokenArg:string,subdomainArg:string) => {
+let loggly = (optionsArg: {
+    customerTokenArg: string,
+    subdomainArg: string,
+    appName: string,
+    serverName:string
+}) => {
     client = plugins.loggly.createClient({
-        token: customerTokenArg,
-        subdomain: subdomainArg,
-        tags: ["beautylog-test"],
-        json:true
+        token: optionsArg.customerTokenArg,
+        subdomain: optionsArg.subdomainArg,
+        tags: [],
+        json: true
     });
+    clientData.applicationName = optionsArg.appName;
+    clientData.serverName = optionsArg.serverName;
 }
 
 export let remote = {

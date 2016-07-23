@@ -75,18 +75,12 @@ Currently supported remote providers:
 * loggly.com
 
 ```typescript
-beautylog.remote.loggly(
-    token: "your-really-long-input-token",
-    subdomain: "your-subdomain",
-    auth: {
-      username: "your-username",
-      password: "your-password"
-    },
-    // 
-    // Optional: Tag to send with EVERY log message 
-    // 
-    tags: ['global-tag']
-);
+beautylog.remote.loggly({
+    customerTokenArg: "loggly-token",
+    subdomainArg: "loggly-subdomain",
+    appName: "some App Name",
+    serverName: "some Server Name"
+});
 ```
 
 > Note: since beautylog monkeypatches all console log methods.

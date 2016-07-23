@@ -11,7 +11,7 @@ beautiful logging, TypeScript ready
 ## Usage
 
 ```typescript
-var beautylog = require("beautylog"); //for use in OS console environment AND browser console
+var beautylog = require("beautylog");
 
 beautylog.log("some log message"); // normal console log message
 beautylog.info("some log message") // info console log message
@@ -19,12 +19,6 @@ beautylog.ok("some log message"); // ok console log message
 beautylog.warn("some log message"); // warn console log message
 beautylog.success("some success message"); // success console log message
 beautylog.error("some error message"); // error console log message
-
-// alternatively you can use a logType parameter
-beautylog.log("some log message","normal");
-beautylog.log("some success message","success");
-beautylog.log("some error message","error");
-/* ... and so on ... */
 ```
 The plugin produces beautiful output like this:
 ![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)
@@ -81,7 +75,7 @@ Currently supported remote providers:
 * loggly.com
 
 ```typescript
-beautylog.registerLoggly(
+beautylog.remote.loggly(
     token: "your-really-long-input-token",
     subdomain: "your-subdomain",
     auth: {

@@ -36,23 +36,16 @@ export class Ora {
     }
     endOk(textArg){
         this.end();
-        logNode(textArg,"ok");
+        logNode("ok",textArg);
     };
     endError(textArg){
         this.end();
-        logNode(textArg,"error");
+        logNode("error",textArg);
     };
     pause(){
         this._oraObject.stop();
     }
     stop(){ // alias for end
         this.end();
-    }
-    
-    // log methods that play nice with ora
-    log(logText:string,logType:string){
-        this.stop();
-        logNode(logText,logType);
-        this.start();
-    }
+    };
 }

@@ -4,5 +4,5 @@
  * @param logType
  * @returns {boolean}
  */
-export declare let log: (logText?: string, logType?: string) => void;
-export declare let logNode: (logText: string, logType: string) => boolean;
+export declare let internalLog: (logType?: string, logText?: string) => void;
+export declare let logNode: (logType: string, logText: string) => boolean;

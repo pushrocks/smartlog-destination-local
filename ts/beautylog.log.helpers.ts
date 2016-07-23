@@ -1,5 +1,27 @@
 import * as plugins from "./beautylog.plugins";
-import {beautyConsole} from "./beautylog.console";
+import { beautyConsole } from "./beautylog.console";
+import {remoteLog} from "./beautylog.remote";
+
+/**
+ *
+ * @param logText
+ * @param logType
+ * @returns {boolean}
+ */
+export let internalLog = function (logType: string = 'normal', logText: string = 'empty log') {
+    switch (plugins.smartenv.getEnv().runtimeEnv){
+        case "node":
+            logNode(logType,logText);
+            remoteLog(logType,logText);
+            break;
+        case "browser":
+            logBrowser(logText, logType);
+            break;
+        default:
+            console.log("something is strange about the platform in which you try to use beautylog");
+            break;
+    };
+};
 
 let localBl = {
     dirPrefix: plugins.clc.bgXterm(39).xterm(231).bold(' DIR ') + ' ',
@@ -11,27 +33,7 @@ let localBl = {
     warnPrefix: ' '.bgYellow + ' Warn: '.bgBlack.yellow.bold + ' '
 };
 
-/**
- *
- * @param logText
- * @param logType
- * @returns {boolean}
- */
-export let log = function(logText:string = 'empty log', logType:string = 'normal') {
-    switch(plugins.smartenv.getEnv().runtimeEnv) {
-    case "node":
-        logNode(logText,logType);
-        break;
-    case "browser":
-        logBrowser(logText,logType);
-        break;
-    default:
-        console.log("something is strange about the platform in which you try to use beautylog");
-        break;
-}
-};
-
-export let logNode = function(logText:string,logType:string){
+export let logNode = function (logType: string,logText: string) {
     try {
         switch (logType) {
             case 'dir':
@@ -72,34 +74,34 @@ export let logNode = function(logText:string,logType:string){
     }
 }
 
-let logBrowser = function(logText,logType){
+let logBrowser = function (logText, logType) {
     switch (logType) {
-            case 'dir':
-                logText = localBl.dirPrefix + plugins.clc.xterm(26)(logText);
-                break;
-            case 'error':
-                logText = localBl.errorPrefix + logText.red.bold;
-                break;
-            case 'info':
-                console.log('%c Info: %c ' + logText,'background:#EC407A;color:#ffffff;','color:#EC407A;');
-                break;
-            case 'normal':
-                logText = localBl.normalPrefix + logText.cyan.bold;
-                break;
-            case 'ok':
-                console.log('%c OK: %c ' + logText,"background:#000000;color:#8BC34A;","color:#000000;");
-                break;
-            case 'success':
-                console.log('%c Success: %c ' + logText,"background:#8BC34A;color:#ffffff;","color:#8BC34A;");
-                break;
-            case 'warn':
-                console.log('%c Warn: %c ' + logText,"background:#000000;color:#FB8C00;","color:#000000;");
-                break;
-            case 'log':
-                console.log('%c Log: %c ' + logText,"background:#42A5F5;color:#ffffff","color:#42A5F5;");
-                break;
-            default:
-                console.log('unknown logType for "' + logText + '"');
-                break;
-        }
+        case 'dir':
+            logText = localBl.dirPrefix + plugins.clc.xterm(26)(logText);
+            break;
+        case 'error':
+            logText = localBl.errorPrefix + logText.red.bold;
+            break;
+        case 'info':
+            console.log('%c Info: %c ' + logText, 'background:#EC407A;color:#ffffff;', 'color:#EC407A;');
+            break;
+        case 'normal':
+            logText = localBl.normalPrefix + logText.cyan.bold;
+            break;
+        case 'ok':
+            console.log('%c OK: %c ' + logText, "background:#000000;color:#8BC34A;", "color:#000000;");
+            break;
+        case 'success':
+            console.log('%c Success: %c ' + logText, "background:#8BC34A;color:#ffffff;", "color:#8BC34A;");
+            break;
+        case 'warn':
+            console.log('%c Warn: %c ' + logText, "background:#000000;color:#FB8C00;", "color:#000000;");
+            break;
+        case 'log':
+            console.log('%c Log: %c ' + logText, "background:#42A5F5;color:#ffffff", "color:#42A5F5;");
+            break;
+        default:
+            console.log('unknown logType for "' + logText + '"');
+            break;
+    }
 };

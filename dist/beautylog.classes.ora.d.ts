@@ -12,5 +12,4 @@ export declare class Ora {
     endError(textArg: any): void;
     pause(): void;
     stop(): void;
-    log(logText: string, logType: string): void;
 }

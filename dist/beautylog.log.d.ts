@@ -1,10 +1,10 @@
 import "typings-global";
-export { log } from "./beautylog.log.helpers";
 /**
  * logs an info to console
  * @param logText
  * @returns {boolean}
  */
+export declare let log: (logText: any) => void;
 export declare let info: (logText: any) => void;
 /**
  * logs an 'OK!' message to console

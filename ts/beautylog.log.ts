@@ -1,15 +1,19 @@
 import "typings-global";
 
-import {log} from "./beautylog.log.helpers";
-export {log} from "./beautylog.log.helpers";
+import {internalLog} from "./beautylog.log.helpers";
 
 /**
  * logs an info to console
  * @param logText
  * @returns {boolean}
  */
+
+export let log = (logText) => {
+    return internalLog("log",logText)
+}
+
 export let info = (logText) => {
-    return log(logText, 'info');
+    return internalLog('info',logText);
 };
 
 /**
@@ -18,7 +22,7 @@ export let info = (logText) => {
  * @returns {boolean}
  */
 export let ok = (logText) => {
-    return log(logText, 'ok');
+    return internalLog("ok",logText);
 };
 
 /**
@@ -27,7 +31,7 @@ export let ok = (logText) => {
  * @returns {boolean}
  */
 export let success = (logText) => {
-    return log(logText, 'success');
+    return internalLog("success",logText);
 };
 
 /**
@@ -36,7 +40,7 @@ export let success = (logText) => {
  * @returns {boolean}
  */
 export let warn = (logText) => {
-    return log(logText, 'warn');
+    return internalLog("warn",logText);
 };
 
 /**
@@ -45,7 +49,7 @@ export let warn = (logText) => {
  * @returns {boolean}
  */
 export let error = (logText) => {
-    return log(logText, 'error');
+    return internalLog("error",logText);
 };
 
 /**
@@ -54,7 +58,7 @@ export let error = (logText) => {
  * @returns {boolean}
  */
 export let dir = (logText) => {
-    return log(logText, 'dir');
+    return internalLog("dir",logText);
 };
 
 /**

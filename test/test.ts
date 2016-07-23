@@ -2,20 +2,11 @@ import "typings-test";
 import beautylog = require('../dist/index');
 
 describe("beautylog",function(){
-    describe(".log(message,logtype)",function(){
-        it("should log cyan text",function(){
+    describe(".log(message)",function(){
+        it("should print a blue Dir message",function(){
             beautylog.log('beautylog.log(), with normal logText, without logType');
-        });
-        it("should print different log types dependent on logType",function(){
-            beautylog.log('beautylog.log(), with normal logText, without logType');
-            beautylog.log('beautylog.log(), with normal logText, with logType "dir"','dir');
-            beautylog.log('beautylog.log(), with normal logText, with logType "error"','error');
-            beautylog.log('beautylog.log(), with normal logText, with logType "info"','info');
-            beautylog.log('beautylog.log(), with normal logText, with logType "ok"','ok');
-            beautylog.log('beautylog.log(), with normal logText, with logType "success"','success');
-            beautylog.log('beautylog.log(), with normal logText, with logType "warn"','warn');
-        });
-    });
+        })
+    })
     describe(".dir(message)",function(){
         it("should print a blue Dir message",function(){
             beautylog.dir('beautylog.dir(), with normal logText, without logType');
@@ -67,7 +58,6 @@ describe("beautylog",function(){
             let testOra = new beautylog.Ora("This is a test text","green",true);
             setTimeout(function(){
                 testOra.text("updated text!");
-                testOra.log("an intermediate log message","info");
                 beautylog.info("another log message that uses the normal log function");
                 setTimeout(function(){
                     testOra.endOk("Allright, ora works!");

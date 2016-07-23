@@ -47,9 +47,6 @@
     "typings-global": "^1.0.6"
   },
   "devDependencies": {
-    "easyserve": "^0.0.5",
-    "gulp": "^3.9.1",
-    "gulp-browser": "^2.1.9",
     "npmts-g": "^5.2.6",
     "typings-test": "^1.0.1"
   }

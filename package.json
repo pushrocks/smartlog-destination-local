@@ -31,24 +31,24 @@
   },
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
-    "@types/colors": "^0.6.28",
-    "@types/lodash": "0.0.28",
+    "@types/colors": "^0.6.29",
+    "@types/lodash": "^0.0.29",
     "@types/loggly": "^1.0.28",
-    "@types/q": "^0.0.27",
+    "@types/q": "^0.0.28",
     "@types/winston": "^0.0.27",
     "cli-color": "^1.1.0",
     "cli-table2": "^0.2.0",
     "colors": "1.1.2",
     "figlet": "^1.1.2",
-    "lodash": "^4.13.1",
+    "lodash": "^4.14.1",
     "loggly": "^1.1.0",
-    "ora": "^0.2.3",
+    "ora": "^0.3.0",
     "q": "^1.4.1",
     "smartenv": "^1.2.5",
     "typings-global": "^1.0.6"
   },
   "devDependencies": {
-    "npmts-g": "^5.2.6",
+    "npmts-g": "^5.2.8",
     "typings-test": "^1.0.1"
   }
 }

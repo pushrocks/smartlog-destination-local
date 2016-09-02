@@ -20,7 +20,7 @@ beautiful logging, TypeScript ready
 ## Usage
 
 ```typescript
-var beautylog = require("beautylog");
+import * as beautylog from "beautylog";
 
 beautylog.log("some log message"); // normal console log message
 beautylog.info("some log message") // info console log message

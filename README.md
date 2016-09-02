@@ -6,6 +6,7 @@ beautiful logging, TypeScript ready
 [![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/beautylog)
 [![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/beautylog)
 [![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/beautylog/docs)
+[![docs](https://push.rocks/assets/repo-button-api.svg)](https://pushrocks.gitlab.io/beautylog/api)
 
 ## Status for master
 [![build status](https://gitlab.com/pushrocks/beautylog/badges/master/build.svg)](https://gitlab.com/pushrocks/beautylog/commits/master)

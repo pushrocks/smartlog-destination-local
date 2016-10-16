@@ -3,7 +3,6 @@ import "typings-global";
 import * as plugins from "./beautylog.plugins";
 
 // export classes
-export {Table} from "./beautylog.classes.table";
 export {Ora} from "./beautylog.classes.ora";
 
 // export methods

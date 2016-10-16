@@ -1,4 +1,4 @@
-import "typings-global";
+import 'typings-global';
 /**
  * logs an info to console
  * @param logText

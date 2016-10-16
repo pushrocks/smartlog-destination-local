@@ -1,11 +1,19 @@
-import "typings-global";
+import 'typings-global';
 
-export import lodash = require("lodash");
-export import smartenv = require("smartenv");
-export import q = require("q")
-export let cliTable = require("cli-table2");
-export import colors = require("colors");
-export let clc = require("cli-color");
-export let figlet = require("figlet");
-export import loggly = require("loggly");
-export let ora = require("ora");
+import * as lodash from 'lodash'
+import * as smartenv from 'smartenv'
+import * as q from 'q'
+import * as clc from 'cli-color'
+let figlet = require('figlet')
+import * as loggly from 'loggly'
+let ora = require('ora')
+
+export {
+    lodash,
+    smartenv,
+    q,
+    clc,
+    figlet,
+    loggly,
+    ora
+}

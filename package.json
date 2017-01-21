@@ -33,18 +33,17 @@
   "dependencies": {
     "@types/lodash": "4.x.x",
     "@types/loggly": "^1.1.30",
-    "@types/q": "0.x.x",
     "cli-color": "^1.1.0",
     "figlet": "^1.2.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.4",
     "loggly": "^1.1.1",
-    "ora": "^0.3.0",
-    "q": "^1.4.1",
-    "smartenv": "^1.2.5",
+    "ora": "^1.1.0",
+    "smartenv": "^2.0.0",
+    "smartq": "^1.0.4",
     "typings-global": "^1.0.14"
   },
   "devDependencies": {
-    "npmts-g": "^5.2.8",
+    "npmts-g": "^6.0.0",
     "typings-test": "^1.0.3"
   }
 }

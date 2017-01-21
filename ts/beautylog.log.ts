@@ -76,7 +76,7 @@ export let newLine = (linesArg: number = 1) => {
  * logs a reduced log that only logs changes of consequential log messages
  */
 export let logReduced = (logTextArg: string,repeatEveryTimesArg: number = 0) => {
-    if (logTextArg === previousMessage && (repeatEveryTimesArg === 0 || sameMessageCounter != repeatEveryTimesArg)) {
+    if (logTextArg === previousMessage && (repeatEveryTimesArg === 0 || sameMessageCounter !== repeatEveryTimesArg)) {
         sameMessageCounter++
     } else {
         sameMessageCounter = 0

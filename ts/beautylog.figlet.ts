@@ -6,24 +6,28 @@ let defaultOptions = {
     cb: function() {}
 }
 
-export let figlet = function(textArg:string,optionsArg?){
+export let figlet = function(textArg: string, optionsArg?){
     let done = plugins.q.defer()
     let mergeOptions = plugins.lodash.cloneDeep(defaultOptions)
     let options = plugins.lodash.assign(mergeOptions,optionsArg)
-    plugins.figlet(textArg,{
-        font: options.font,
-        horizontalLayout: 'default',
-        verticalLayout: 'default'
-    }, function(err, data) {
-        if (err) {
-            console.log('Something went wrong...')
-            console.dir(err)
-            return
+    plugins.figlet(
+        textArg,
+        {
+            font: options.font,
+            horizontalLayout: 'default',
+            verticalLayout: 'default'
+        },
+        function(err, data) {
+            if (err) {
+                console.log('Something went wrong...')
+                console.dir(err)
+                return
+            }
+            console.log(data[options.color])
+            options.cb()
+            done.resolve()
         }
-        console.log(data[options.color])
-        options.cb()
-        done.resolve()
-    })
+    )
     return done.promise
 }
 

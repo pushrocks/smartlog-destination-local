@@ -29,7 +29,7 @@ let xC = {
     cyan: 87,
     green: 112,
     red: 196,
-    white: 231,
+    white: 231
 }
 
 let localBl = {
@@ -113,4 +113,4 @@ let logBrowser = function (logText, logType) {
             console.log('unknown logType for "' + logText + '"')
             break
     }
-};
+}

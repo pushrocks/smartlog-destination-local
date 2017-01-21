@@ -30,7 +30,7 @@ export let figlet = function(textArg: string, optionsArg?){
                 console.dir(err)
                 return
             }
-            console.log(colorFiglet(data, optionsArg.color))
+            console.log(colorFiglet(data, options.color))
             options.cb()
             done.resolve()
         }
@@ -46,7 +46,7 @@ export let figletSync = function(textArg: string,optionsArg?: IFigletOptions){
         horizontalLayout: 'default',
         verticalLayout: 'default'
     })
-    console.log(colorFiglet(figletString, optionsArg.color))
+    console.log(colorFiglet(figletString, options.color))
     return true
 }
 

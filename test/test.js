@@ -19,7 +19,7 @@ describe('beautylog', function () {
     });
     describe('.figlet', function () {
         it('should print nice fonts to console in yellow', function (done) {
-            beautylog.figlet('Async!', { font: 'Star Wars', color: 'yellow' }).then(done);
+            beautylog.figlet('Async!', { font: 'Star Wars', color: 'orange' }).then(done);
         });
     });
     describe('.figletSync', function () {

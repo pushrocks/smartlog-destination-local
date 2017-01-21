@@ -51,7 +51,7 @@ export let logNode = function (logType: string, logText: string) {
                 logText = localBl.logPrefix + coloredString(logText, 'cyan')
                 break
             case 'ok':
-                logText = localBl.okPrefix + logText
+                logText = localBl.okPrefix + coloredString(logText, 'green')
                 break
             case 'success':
                 logText = localBl.successPrefix + coloredString(logText, 'green')

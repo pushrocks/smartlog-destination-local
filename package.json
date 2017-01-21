@@ -33,7 +33,7 @@
   "dependencies": {
     "@types/lodash": "4.x.x",
     "@types/loggly": "^1.1.30",
-    "cli-color": "^1.1.0",
+    "beautycolor": "^1.0.2",
     "figlet": "^1.2.0",
     "lodash": "^4.17.4",
     "loggly": "^1.1.1",
@@ -44,6 +44,8 @@
   },
   "devDependencies": {
     "npmts-g": "^6.0.0",
+    "qenv": "^1.1.3",
+    "smartchai": "^1.0.1",
     "typings-test": "^1.0.3"
   }
 }

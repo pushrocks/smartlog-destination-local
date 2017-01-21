@@ -1,6 +1,8 @@
 import 'typings-test'
 import beautylog = require('../dist/index')
 
+import * as qenv from 'qenv'
+
 describe('beautylog',function(){
     describe('.log(message)',function(){
         it('should print a blue Dir message',function(){

@@ -1,9 +1,9 @@
 import 'typings-global';
+import * as beautycolor from 'beautycolor';
 import * as lodash from 'lodash';
 import * as smartenv from 'smartenv';
 import * as q from 'smartq';
-import * as clc from 'cli-color';
 declare let figlet: any;
 import * as loggly from 'loggly';
 declare let ora: any;
-export { lodash, smartenv, q, clc, figlet, loggly, ora };
+export { beautycolor, lodash, smartenv, q, figlet, loggly, ora };

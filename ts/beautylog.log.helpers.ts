@@ -23,54 +23,47 @@ export let internalLog = function (logType: string = 'normal', logText: string =
     }
 }
 
-let xC = {
-    black: 232,
-    blue: 39,
-    cyan: 87,
-    green: 112,
-    red: 196,
-    white: 231
-}
+let coloredString = plugins.beautycolor.coloredString
 
 let localBl = {
-    dirPrefix: plugins.clc.bgXterm(xC.blue).xterm(xC.white).bold(' DIR ') + ' ',
-    errorPrefix: plugins.clc.bgXterm(xC.red)(' ') + plugins.clc.bgXterm(xC.black).xterm(xC.red).bold(' Error: ') + ' ',
-    infoPrefix: plugins.clc.bgXterm(198).xterm(231).bold(' INFO ') + ' ',
-    logPrefix: plugins.clc.bgXterm(xC.cyan)(' ') + plugins.clc.bgXterm(xC.black).xterm(xC.cyan).bold(' Log: ') + ' ',
-    okPrefix: plugins.clc.bgXterm(xC.green)(' ') + plugins.clc.bgXterm(xC.black).xterm(xC.green).bold(' OK! ') + ' ',
-    successPrefix: plugins.clc.bgXterm(xC.green)(' ') + plugins.clc.bgXterm(xC.black).xterm(xC.green).bold(' Success: ') + ' ',
-    warnPrefix: plugins.clc.bgYellow(' ') + plugins.clc.bgBlack.yellow.bold(' Warn: ') + ' '
+    dirPrefix: coloredString(' DIR ', 'white', 'blue') + ' ',
+    errorPrefix: coloredString(' ', 'red','red') + coloredString(' Error: ', 'red', 'black') + ' ',
+    infoPrefix: coloredString(' INFO ', 'white', 'pink') + ' ',
+    logPrefix: coloredString(' ', 'white', 'cyan') + coloredString(' Log: ', 'cyan', 'black') + ' ',
+    okPrefix: coloredString(' ', 'green', 'green') + coloredString(' OK! ', 'green', 'black') + ' ',
+    successPrefix: coloredString(' ', 'green', 'green') + coloredString(' Success: ', 'green', 'black') + ' ',
+    warnPrefix: coloredString(' ', 'orange', 'orange') + coloredString(' Warn: ', 'orange', 'black') + ' '
 }
 
 export let logNode = function (logType: string, logText: string) {
     try {
         switch (logType) {
             case 'dir':
-                logText = localBl.dirPrefix + plugins.clc.xterm(xC.blue)(logText)
+                logText = localBl.dirPrefix + coloredString(logText, 'blue')
                 break
             case 'error':
-                logText = localBl.errorPrefix + plugins.clc.xterm(xC.red).bold(logText)
+                logText = localBl.errorPrefix + coloredString(logText, 'red')
                 break
             case 'info':
-                logText = localBl.infoPrefix + plugins.clc.xterm(198)(logText)
+                logText = localBl.infoPrefix + coloredString(logText, 'pink')
                 break
             case 'normal':
-                logText = localBl.logPrefix + plugins.clc.xterm(xC.cyan).bold(logText)
+                logText = localBl.logPrefix + coloredString(logText, 'cyan')
                 break
             case 'ok':
-                logText = localBl.okPrefix + plugins.clc.bold(logText)
+                logText = localBl.okPrefix + logText
                 break
             case 'success':
-                logText = localBl.successPrefix + plugins.clc.xterm(xC.green).bold(logText)
+                logText = localBl.successPrefix + coloredString(logText, 'green')
                 break
             case 'warn':
-                logText = localBl.warnPrefix + plugins.clc.bold(logText)
+                logText = localBl.warnPrefix + coloredString(logText, 'orange')
                 break
             case 'log':
-                logText = localBl.logPrefix + plugins.clc.blue.bold(logText)
+                logText = localBl.logPrefix + coloredString(logText, 'cyan')
                 break
             default:
-                plugins.clc.blue.bold(logText)
+                coloredString(logText, 'blue')
                 console.log(('unknown logType for "' + logText + '"'))
                 break
         }
@@ -86,7 +79,7 @@ export let logNode = function (logType: string, logText: string) {
 let logBrowser = function (logText, logType) {
     switch (logType) {
         case 'dir':
-            logText = localBl.dirPrefix + plugins.clc.xterm(26)(logText)
+            logText = localBl.dirPrefix + coloredString(logText, 'blue')
             break
         case 'error':
             logText = localBl.errorPrefix + logText.red.bold

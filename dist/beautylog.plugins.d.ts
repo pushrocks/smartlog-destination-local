@@ -4,6 +4,5 @@ import * as lodash from 'lodash';
 import * as smartenv from 'smartenv';
 import * as q from 'smartq';
 declare let figlet: any;
-import * as loggly from 'loggly';
 declare let ora: any;
-export { beautycolor, lodash, smartenv, q, figlet, loggly, ora };
+export { beautycolor, lodash, smartenv, q, figlet, ora };

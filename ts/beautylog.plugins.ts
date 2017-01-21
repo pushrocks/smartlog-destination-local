@@ -5,7 +5,6 @@ import * as lodash from 'lodash'
 import * as smartenv from 'smartenv'
 import * as q from 'smartq'
 let figlet = require('figlet')
-import * as loggly from 'loggly'
 let ora = require('ora')
 
 export {
@@ -14,6 +13,5 @@ export {
     smartenv,
     q,
     figlet,
-    loggly,
     ora
 }

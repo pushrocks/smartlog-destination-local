@@ -32,11 +32,9 @@
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
     "@types/lodash": "4.x.x",
-    "@types/loggly": "^1.1.30",
     "beautycolor": "^1.0.5",
     "figlet": "^1.2.0",
     "lodash": "^4.17.4",
-    "loggly": "^1.1.1",
     "ora": "^1.1.0",
     "smartenv": "^2.0.0",
     "smartq": "^1.0.4",

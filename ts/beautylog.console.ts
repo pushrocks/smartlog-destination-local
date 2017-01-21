@@ -1,6 +1,6 @@
 import 'typings-global'
 import plugins = require('./beautylog.plugins')
-import {activeOra,oraActive} from './beautylog.classes.ora'
+import { activeOra, oraActive } from './beautylog.classes.ora'
 let nativeLog = console.log
 let nativeError = console.error
 
@@ -17,7 +17,7 @@ let route = function(statusArg: boolean){
 }
 
 export let beautyConsole = {
-    log: function(logArg: any){
+    log: function(logArg: any) {
         if (oraActive) {
             activeOra.pause()
             nativeLog.apply(nativeLog, arguments)

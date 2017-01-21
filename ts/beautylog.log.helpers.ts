@@ -28,7 +28,7 @@ let coloredString = plugins.beautycolor.coloredString
 let localBl = {
     dirPrefix: coloredString(' DIR ', 'white', 'blue') + ' ',
     errorPrefix: coloredString(' ', 'red','red') + coloredString(' Error: ', 'red', 'black') + ' ',
-    infoPrefix: coloredString(' INFO ', 'white', 'pink') + ' ',
+    infoPrefix: coloredString(' ', 'pink', 'pink') + coloredString(' INFO ', 'pink', 'black') + ' ',
     logPrefix: coloredString(' ', 'white', 'cyan') + coloredString(' Log: ', 'cyan', 'black') + ' ',
     okPrefix: coloredString(' ', 'green', 'green') + coloredString(' OK! ', 'green', 'black') + ' ',
     successPrefix: coloredString(' ', 'green', 'green') + coloredString(' Success: ', 'green', 'black') + ' ',

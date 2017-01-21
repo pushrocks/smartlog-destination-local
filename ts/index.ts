@@ -1,7 +1,7 @@
 import 'typings-global'
+import './beautylog.console'
 
 import * as plugins from './beautylog.plugins'
-
 // export classes
 export {Ora} from './beautylog.classes.ora'
 

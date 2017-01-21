@@ -14,15 +14,16 @@ export class Ora {
             text: textArg,
             color: colorArg
         })
-
-        startArg ? this._oraObject.start() : void(0)
+        if (startArg) {
+            this.start()
+        }
     }
     text(textArg) {
         this._oraObject.text = textArg
     }
 
     start(textArg?: string,colorArg?: string) {
-        if (textArg) { this._oraObject.text = textArg }
+        if (textArg) { this.text(textArg) }
         if (colorArg) { this._oraObject.color = colorArg }
         activeOra = this
         oraActive = true

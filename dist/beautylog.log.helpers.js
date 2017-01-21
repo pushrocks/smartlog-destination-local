@@ -26,7 +26,7 @@ let coloredString = plugins.beautycolor.coloredString;
 let localBl = {
     dirPrefix: coloredString(' DIR ', 'white', 'blue') + ' ',
     errorPrefix: coloredString(' ', 'red', 'red') + coloredString(' Error: ', 'red', 'black') + ' ',
-    infoPrefix: coloredString(' ', 'pink', 'pink') + coloredString(' INFO ', 'pink', 'black') + ' ',
+    infoPrefix: coloredString(' ', 'blue', 'blue') + coloredString(' INFO ', 'blue', 'black') + ' ',
     logPrefix: coloredString(' ', 'white', 'cyan') + coloredString(' Log: ', 'cyan', 'black') + ' ',
     okPrefix: coloredString(' ', 'green', 'green') + coloredString(' OK! ', 'green', 'black') + ' ',
     successPrefix: coloredString(' ', 'green', 'green') + coloredString(' Success: ', 'green', 'black') + ' ',
@@ -42,7 +42,7 @@ exports.logNode = function (logType, logText) {
                 logText = localBl.errorPrefix + coloredString(logText, 'red');
                 break;
             case 'info':
-                logText = localBl.infoPrefix + coloredString(logText, 'pink');
+                logText = localBl.infoPrefix + coloredString(logText, 'blue');
                 break;
             case 'normal':
                 logText = localBl.logPrefix + coloredString(logText, 'cyan');

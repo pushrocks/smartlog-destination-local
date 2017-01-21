@@ -1,5 +1,4 @@
 import * as plugins from './beautylog.plugins'
-import { beautyConsole } from './beautylog.console'
 import { remoteLog } from './beautylog.remote'
 
 /**
@@ -27,12 +26,13 @@ let coloredString = plugins.beautycolor.coloredString
 
 let localBl = {
     dirPrefix: coloredString(' DIR ', 'white', 'blue') + ' ',
-    errorPrefix: coloredString(' ', 'red','red') + coloredString(' Error: ', 'red', 'black') + ' ',
-    infoPrefix: coloredString(' ', 'blue', 'blue') + coloredString(' INFO ', 'blue', 'black') + ' ',
-    logPrefix: coloredString(' ', 'white', 'cyan') + coloredString(' Log: ', 'cyan', 'black') + ' ',
+    errorPrefix: coloredString(' ', 'red','red') + coloredString(' ERROR!  ', 'red', 'black') + ' ',
+    infoPrefix: coloredString(' ', 'blue', 'blue') + coloredString(' INFO: ', 'blue', 'black') + ' ',
+    logPrefix: coloredString(' ', 'white', 'cyan') + coloredString(' LOG: ', 'cyan', 'black') + ' ',
+    notePrefix: coloredString(' ', 'pink', 'pink') + coloredString( ' NOTE -> ', 'pink', 'black') + ' ',
     okPrefix: coloredString(' ', 'green', 'green') + coloredString(' OK! ', 'green', 'black') + ' ',
-    successPrefix: coloredString(' ', 'green', 'green') + coloredString(' Success: ', 'green', 'black') + ' ',
-    warnPrefix: coloredString(' ', 'orange', 'orange') + coloredString(' Warn: ', 'orange', 'black') + ' '
+    successPrefix: coloredString(' ', 'green', 'green') + coloredString(' SUCCESS! ', 'green', 'black') + ' ',
+    warnPrefix: coloredString(' ', 'orange', 'orange') + coloredString(' WARN: -> ', 'orange', 'black') + ' '
 }
 
 export let logNode = function (logType: string, logText: string) {
@@ -49,6 +49,9 @@ export let logNode = function (logType: string, logText: string) {
                 break
             case 'normal':
                 logText = localBl.logPrefix + coloredString(logText, 'cyan')
+                break
+            case 'note':
+                logText = localBl.notePrefix + coloredString(logText, 'pink')
                 break
             case 'ok':
                 logText = localBl.okPrefix + coloredString(logText, 'green')
@@ -67,7 +70,7 @@ export let logNode = function (logType: string, logText: string) {
                 console.log(('unknown logType for "' + logText + '"'))
                 break
         }
-        beautyConsole.log(logText)
+        console.log(logText)
         return true
     } catch (error) {
         console.log(localBl.errorPrefix

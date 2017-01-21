@@ -13,3 +13,4 @@ export declare class Ora {
     pause(): void;
     stop(): void;
 }
+export declare let ora: Ora;

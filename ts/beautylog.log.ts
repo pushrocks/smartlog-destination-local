@@ -62,6 +62,13 @@ export let dir = (logText) => {
 }
 
 /**
+ * note
+ */
+export let note = (logText) => {
+    return internalLog('note', logText)
+}
+
+/**
  * creates a new empty line
  * @param linesArg
  * @returns void

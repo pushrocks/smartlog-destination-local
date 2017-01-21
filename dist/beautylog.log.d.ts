@@ -37,6 +37,10 @@ export declare let error: (logText: any) => void;
  */
 export declare let dir: (logText: any) => void;
 /**
+ * note
+ */
+export declare let note: (logText: any) => void;
+/**
  * creates a new empty line
  * @param linesArg
  * @returns void

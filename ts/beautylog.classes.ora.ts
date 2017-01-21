@@ -50,3 +50,5 @@ export class Ora {
         this.end()
     }
 }
+
+export let ora = new Ora('init...', 'blue', false)

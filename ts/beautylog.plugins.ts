@@ -1,4 +1,4 @@
-import 'typings-global';
+import 'typings-global'
 
 import * as lodash from 'lodash'
 import * as smartenv from 'smartenv'

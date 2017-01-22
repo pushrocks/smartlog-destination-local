@@ -29,40 +29,32 @@ beautylog.warn('some log message') // warn console log message
 beautylog.success('some success message') // success console log message
 beautylog.error('some error message') // error console log message
 ```
-The plugin produces beautiful output like this:
-![console.png](https://mediaserve.lossless.digital/github.com/pushrocks/beautylog/console.png)
 
 ### Ora Integration
 beautylog wraps the excellent ora module from npm to better work with beautylog. In general that means that you can log persistent messages WHILE you are actually having an active Ora object. beautylog handles all the fuss for you.
 
 ```typescript
-let myOra = new beautylog.Ora('my awesome text', 'blue')
-myOra.start()
-beautylog.info('some persistent text') //does not disturb myOra
+beautylog.ora.start('Hi, this is some text!', 'blue')
+beautylog.info('some persistent text') //does not disturb ora
 console.log('something') // even this works because console.log is monkeypatched by beautylog
-myOra.text('some updated text')
-myOra.stop()
+beautylog.ora.text('some updated text') // switches the text
+beautylog.ora.stop()
 ```
 
 ## Centralized remote logging
 Beautylog makes it easy to have all your node applications log to a remote location.
 
-Currently supported remote providers:
-
-* loggly.com
-
 ```typescript
-beautylog.remote.loggly({
-    token: 'loggly-token',
-    subdomain: 'loggly-subdomain',
-    appName: 'some App Name',
-    serverName: 'some Server Name'
+import { Loggly } from 'beautyremote'
+let myLogglyRemote = new Loggly({
+    token: 'my_super_long_token_here'
 })
+beautylog.registerRemote(myLogglyRemote)
 ```
 
-> Note: since beautylog monkeypatches all console log methods.
+> Note: Beautylog monkeypatches all console log methods.
 There is no need to change anything in your code.
-Everything that is getting logged to your console by node will get logged to loggly as well.
+Everything that is getting logged to your console by node will get logged to a remote as well.
 
 For more information read the docs!
 

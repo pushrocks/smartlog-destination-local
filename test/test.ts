@@ -1,9 +1,19 @@
 import 'typings-test'
 import beautylog = require('../dist/index')
+import * as beautyremote from 'beautyremote'
 
 import * as qenv from 'qenv'
+let testQenv = new qenv.Qenv(process.cwd(), process.cwd() + '/.nogit')
 
 describe('beautylog',function(){
+    describe('.registerRemote', function() {
+        it('should accept a beautyremote', function(){
+            let myRemote = new beautyremote.Loggly({
+                token: process.env.LOGGLY_TOKEN
+            })
+            beautylog.registerRemote(myRemote)
+        })
+    })
     describe('.log(message)',function(){
         it('should print a blue Dir message',function(){
             beautylog.log('beautylog.log(), with normal logText, without logType')

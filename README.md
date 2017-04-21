@@ -22,7 +22,7 @@ beautiful logging, TypeScript ready
 Use TypeScript for best in class instellisense.
 
 **Quick Demo:**
-[![asciicast](https://asciinema.org/a/7w06e0n0ow2a1m2v1htbotru6.png)](https://asciinema.org/a/7w06e0n0ow2a1m2v1htbotru6)
+[![asciicast](https://asciinema.org/a/46djsde96ecsho9wqibjx2zye.png)](https://asciinema.org/a/46djsde96ecsho9wqibjx2zye)
 
 ```javascript
 beautylog.log('some log message') // normal console log message

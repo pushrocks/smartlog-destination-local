@@ -21,6 +21,9 @@ beautiful logging, TypeScript ready
 ## Usage
 Use TypeScript for best in class instellisense.
 
+**Quick Demo:**
+[![asciicast](https://asciinema.org/a/7w06e0n0ow2a1m2v1htbotru6.png)](https://asciinema.org/a/7w06e0n0ow2a1m2v1htbotru6)
+
 ```javascript
 beautylog.log('some log message') // normal console log message
 beautylog.info('some log message') // info console log message

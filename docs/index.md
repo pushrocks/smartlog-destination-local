@@ -18,7 +18,7 @@ beautiful logging, TypeScript ready
 [![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-# Quick Demo
+## Quick Demo
 [![asciicast](https://asciinema.org/a/46djsde96ecsho9wqibjx2zye.png)](https://asciinema.org/a/46djsde96ecsho9wqibjx2zye)
 
 ## Usage

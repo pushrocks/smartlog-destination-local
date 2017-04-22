@@ -56,14 +56,15 @@ trigger:
     - docker
 
 pages:
-  image: hosttoday/ht-docker-node:npmpage
+  image: hosttoday/ht-docker-node:npmci
   stage: pages
   script:
-    - npmci command npmpage --publish gitlab
-  only:
-    - tags
+    - npmci command yarn global add npmpage
+    - npmci command npmpage
   tags:
     - docker
+  only:
+    - tags
   artifacts:
     expire_in: 1 week
     paths:

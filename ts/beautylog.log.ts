@@ -1,6 +1,6 @@
 import 'typings-global'
 
-import {internalLog} from './beautylog.log.helpers'
+import { internalLog } from './beautylog.log.helpers'
 
 /**
  * logs an info to console
@@ -9,11 +9,11 @@ import {internalLog} from './beautylog.log.helpers'
  */
 
 export let log = (logText) => {
-    return internalLog('log',logText)
+  return internalLog('log', logText)
 }
 
 export let info = (logText) => {
-    return internalLog('info',logText)
+  return internalLog('info', logText)
 }
 
 /**
@@ -22,7 +22,7 @@ export let info = (logText) => {
  * @returns {boolean}
  */
 export let ok = (logText) => {
-    return internalLog('ok',logText)
+  return internalLog('ok', logText)
 }
 
 /**
@@ -31,7 +31,7 @@ export let ok = (logText) => {
  * @returns {boolean}
  */
 export let success = (logText) => {
-    return internalLog('success',logText)
+  return internalLog('success', logText)
 }
 
 /**
@@ -40,7 +40,7 @@ export let success = (logText) => {
  * @returns {boolean}
  */
 export let warn = (logText) => {
-    return internalLog('warn',logText)
+  return internalLog('warn', logText)
 }
 
 /**
@@ -49,7 +49,7 @@ export let warn = (logText) => {
  * @returns {boolean}
  */
 export let error = (logText) => {
-    return internalLog('error',logText)
+  return internalLog('error', logText)
 }
 
 /**
@@ -58,14 +58,14 @@ export let error = (logText) => {
  * @returns {boolean}
  */
 export let dir = (logText) => {
-    return internalLog('dir',logText)
+  return internalLog('dir', logText)
 }
 
 /**
  * note
  */
 export let note = (logText) => {
-    return internalLog('note', logText)
+  return internalLog('note', logText)
 }
 
 /**
@@ -74,22 +74,22 @@ export let note = (logText) => {
  * @returns void
  */
 export let newLine = (linesArg: number = 1) => {
-    for (let i = 0; i < linesArg; i++) {
-        console.log('\n')
-    }
+  for (let i = 0; i < linesArg; i++) {
+    console.log('\n')
+  }
 }
 
 /**
  * logs a reduced log that only logs changes of consequential log messages
  */
-export let logReduced = (logTextArg: string,repeatEveryTimesArg: number = 0) => {
-    if (logTextArg === previousMessage && (repeatEveryTimesArg === 0 || sameMessageCounter !== repeatEveryTimesArg)) {
-        sameMessageCounter++
-    } else {
-        sameMessageCounter = 0
-        previousMessage = logTextArg
-        log(logTextArg)
-    }
+export let logReduced = (logTextArg: string, repeatEveryTimesArg: number = 0) => {
+  if (logTextArg === previousMessage && (repeatEveryTimesArg === 0 || sameMessageCounter !== repeatEveryTimesArg)) {
+    sameMessageCounter++
+  } else {
+    sameMessageCounter = 0
+    previousMessage = logTextArg
+    log(logTextArg)
+  }
 }
 let previousMessage: string = ''
 let sameMessageCounter: number = 0

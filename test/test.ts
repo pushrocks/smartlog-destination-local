@@ -1,12 +1,11 @@
 import { tap, expect } from 'tapbundle'
-
-import beautylog = require('../dist/index')
-import * as beautyremote from 'beautyremote'
+import * as smartdelay from 'smartdelay'
 
 import * as qenv from 'qenv'
 let testQenv = new qenv.Qenv(process.cwd(), process.cwd() + '/.nogit')
 
-import * as smartdelay from 'smartdelay'
+import * as beautyremote from 'beautyremote'
+import beautylog = require('../ts/index')
 
 tap.test('.registerRemote should accept a beautyremote', async () => {
   let myRemote = new beautyremote.Loggly({

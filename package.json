@@ -31,17 +31,16 @@
   },
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
-    "@types/lodash": "^4.14.55",
-    "beautycolor": "^1.0.7",
+    "@types/lodash": "^4.14.104",
+    "beautycolor": "^1.0.11",
     "figlet": "^1.2.0",
-    "lodash": "^4.17.4",
-    "ora": "^1.1.0",
-    "smartenv": "^2.0.0",
-    "smartq": "^1.1.1",
-    "typings-global": "^1.0.14"
+    "lodash": "^4.17.5",
+    "ora": "^2.0.0",
+    "smartenv": "^4.0.3",
+    "smartlog-interfaces": "^1.0.5",
+    "smartq": "^1.1.6"
   },
   "devDependencies": {
-    "beautyremote": "^1.0.5",
     "qenv": "^1.1.3",
     "smartchai": "^1.0.3",
     "smartdelay": "^1.0.1",

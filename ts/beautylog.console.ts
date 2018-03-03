@@ -1,4 +1,6 @@
-import 'typings-global';
+// ======
+// monkeypatch logging, so console logs are controled by beautylog
+// ======
 import plugins = require('./beautylog.plugins');
 import { activeOra, oraActive } from './beautylog.classes.ora';
 let nativeLog = console.log;

@@ -1,22 +1,16 @@
-import 'typings-global';
 import * as plugins from './beautylog.plugins';
-import { logNode } from './beautylog.log.helpers';
-
-export let oraActive: boolean = false; // when an Ora is active (e.g. start()) this is true
-export let activeOra: Ora; // points to the currently active Ora object
+import { Beautylog } from './beautylog.classes.beautylog';
 
 export class Ora {
+  beautylog: Beautylog;
   state: string;
   private _oraObject;
-  constructor(textArg: string, colorArg: string, startArg: boolean = false) {
+  constructor(beautylogInstanceArg: Beautylog = new Beautylog()) {
     this._oraObject = plugins.ora({
       spinner: 'dots',
-      text: textArg,
-      color: colorArg
+      text: '',
+      color: 'blue'
     });
-    if (startArg) {
-      this.start();
-    }
   }
   text(textArg) {
     this._oraObject.text = textArg;
@@ -29,15 +23,11 @@ export class Ora {
     if (colorArg) {
       this._oraObject.color = colorArg;
     }
-    activeOra = this;
-    oraActive = true;
     this._oraObject.start();
   }
   end() {
     this._oraObject.stop();
     this._oraObject.clear();
-    activeOra = undefined;
-    oraActive = false;
   }
   endOk(textArg) {
     this.end();
@@ -55,5 +45,3 @@ export class Ora {
     this.end();
   }
 }
-
-export let ora = new Ora('init...', 'blue', false);

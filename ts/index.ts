@@ -6,16 +6,5 @@ import * as plugins from './beautylog.plugins';
 export { ora } from './beautylog.classes.ora';
 
 // export methods
-export {
-  dir,
-  error,
-  info,
-  log,
-  logReduced,
-  note,
-  ok,
-  success,
-  warn,
-  newLine
-} from './beautylog.log';
+export { log, logReduced, newLine } from './beautylog.log';
 export { figlet, figletSync } from './beautylog.figlet';

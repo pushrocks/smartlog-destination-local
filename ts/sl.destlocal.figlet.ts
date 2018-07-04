@@ -1,4 +1,4 @@
-import plugins = require('./beautylog.plugins');
+import plugins = require('./sl.destlocal.plugins');
 
 export interface IFigletOptions {
   font?: string;

@@ -1,8 +1,8 @@
 // ======
 // monkeypatch logging, so console logs are controled by beautylog
 // ======
-import plugins = require('./beautylog.plugins');
-import { activeOra, oraActive } from './beautylog.classes.ora';
+import plugins = require('./sl.destlocal.plugins');
+import { activeOra, oraActive } from './sl.destlocal.classes.ora';
 let nativeLog = console.log;
 let nativeError = console.error;
 

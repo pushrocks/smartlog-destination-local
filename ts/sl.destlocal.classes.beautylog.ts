@@ -1,8 +1,8 @@
-import * as plugins from './beautylog.plugins';
+import * as plugins from './sl.destlocal.plugins';
 import { ILogDestination, ILogPackage } from 'smartlog-interfaces';
 
 // other beautylog classes
-import { Ora } from './beautylog.classes.ora';
+import { Ora } from './sl.destlocal.classes.ora';
 
 export interface IBeautyLogObject {
   logType: string;

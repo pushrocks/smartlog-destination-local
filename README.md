@@ -1,6 +1,6 @@
-# beautylog
+# smartlog-destination-local
 
-beautiful logging, TypeScript ready
+a smartlog destination targeting the local console
 
 ## Availabililty
 

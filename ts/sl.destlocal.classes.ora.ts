@@ -1,5 +1,5 @@
-import * as plugins from './beautylog.plugins';
-import { Beautylog } from './beautylog.classes.beautylog';
+import * as plugins from './sl.destlocal.plugins';
+import { Beautylog } from './sl.destlocal.classes.beautylog';
 
 export class Ora {
   beautylog: Beautylog;

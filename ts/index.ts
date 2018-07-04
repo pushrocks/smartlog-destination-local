@@ -1,10 +1,9 @@
-import 'typings-global';
-import './beautylog.console';
+ import './sl.destlocal.console';
 
-import * as plugins from './beautylog.plugins';
+import * as plugins from './sl.destlocal.plugins';
 // export classes
-export { ora } from './beautylog.classes.ora';
+export { Ora } from './sl.destlocal.classes.ora';
 
 // export methods
 export { log, logReduced, newLine } from './beautylog.log';
-export { figlet, figletSync } from './beautylog.figlet';
+export { figlet, figletSync } from './sl.destlocal.figlet';

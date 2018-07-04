@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartlog-destination-local",
-  "version": "6.1.12",
+  "version": "7.0.0",
   "description": "a smartlog destination targeting the local console",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

@@ -1,4 +1,4 @@
- import './sl.destlocal.console';
+import './sl.destlocal.console';
 
 import * as plugins from './sl.destlocal.plugins';
 // export classes

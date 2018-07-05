@@ -9,8 +9,13 @@ export interface IBeautyLogObject {
   logString: string;
 }
 
-export class Beautylog implements ILogDestination {
+export class DestinationLocal implements ILogDestination {
   private oraInstance: Ora;
+
+  /**
+   * handles a log according to the smartlog standard
+   * @param logPackage
+   */
   handleLog(logPackage: ILogPackage) {
     this.logToConsole(this.parseLog(logPackage.message));
   }
@@ -115,7 +120,13 @@ export class Beautylog implements ILogDestination {
           console.log('unknown logType for "' + logString + '"');
           break;
       }
+      if (this.ora.state === 'running') {
+        this.ora.pause();
+      }
       console.log(logString);
+      if (this.ora.state === 'paused') {
+        this.ora.start();
+      }
       return true;
     } catch (error) {
       console.log(

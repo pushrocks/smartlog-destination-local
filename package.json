@@ -1,19 +1,13 @@
 {
   "name": "@pushrocks/smartlog-destination-local",
+  "private": false,
   "version": "7.0.0",
   "description": "a smartlog destination targeting the local console",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(npmts)",
-    "testbrowser": "(npm test) && (node testbrowser.js)",
-    "gitsetup": "(git config push.followTags true)",
-    "push": "(git push origin master && git push origin release && git push --follow-tags)",
-    "reinstall": "(rm -r node_modules && npm install)",
-    "release": "(npm test) && (git pull origin master && npm version patch && git checkout release && git merge master && git checkout master && npm run push)",
-    "update": "(git checkout master && git pull origin master) && (npm install)",
-    "upgrade": "(npm run update) && (ncu upgradeAll && npm install)",
-    "build": "echo \"Not needed for now\""
+    "test": "(tsrun test/test.ts)",
+    "build": "(npmts)"
   },
   "repository": {
     "type": "git",
@@ -42,10 +36,10 @@
     "smartq": "^1.1.6"
   },
   "devDependencies": {
+    "@gitzone/tsrun": "^1.1.1",
+    "@types/node": "^10.5.1",
     "qenv": "^1.1.7",
-    "smartchai": "^2.0.1",
     "smartdelay": "^1.0.4",
-    "tapbundle": "^2.0.0"
-  },
-  "private": true
+    "tapbundle": "^2.0.2"
+  }
 }

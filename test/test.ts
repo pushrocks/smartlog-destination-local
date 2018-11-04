@@ -22,6 +22,7 @@ tap.test('should create a valid instance of DestinationLocal', async () => {
 
 tap.test('.log(message) should print a blue Dir message', async () => {
   testLocalInstance.handleLog({
+    timestamp: Date.now(),
     type: 'log',
     level: 'info',
     context: testLogContext,

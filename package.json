@@ -27,7 +27,7 @@
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
     "@pushrocks/consolecolor": "^2.0.1",
-    "@pushrocks/smartlog-interfaces": "^2.0.1",
+    "@pushrocks/smartlog-interfaces": "^2.0.2",
     "@pushrocks/smartpromise": "^2.0.5",
     "ora": "^3.0.0",
     "smartenv": "^4.0.3"

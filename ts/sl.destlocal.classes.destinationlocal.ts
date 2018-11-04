@@ -47,6 +47,7 @@ export class DestinationLocal implements ILogDestination {
       this.sameMessageCounter = 0;
       this.previousMessage = logTextArg;
       this.logToConsole({
+        timestamp: Date.now(),
         type: 'log',
         level: 'info',
         context: {

@@ -29,7 +29,6 @@
     "@pushrocks/consolecolor": "^2.0.1",
     "@pushrocks/smartlog-interfaces": "^2.0.1",
     "@pushrocks/smartpromise": "^2.0.5",
-    "@types/lodash": "^4.14.117",
     "ora": "^3.0.0",
     "smartenv": "^4.0.3"
   },

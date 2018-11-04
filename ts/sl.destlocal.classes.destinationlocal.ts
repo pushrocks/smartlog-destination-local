@@ -1,13 +1,9 @@
 import * as plugins from './sl.destlocal.plugins';
-import { ILogDestination, ILogPackage } from 'smartlog-interfaces';
+import { ILogDestination, ILogPackage, TLogLevel } from '@pushrocks/smartlog-interfaces';
 
 // other beautylog classes
 import { Ora } from './sl.destlocal.classes.ora';
-
-export interface IBeautyLogObject {
-  logType: string;
-  logString: string;
-}
+import { TColorName } from '@pushrocks/consolecolor';
 
 export class DestinationLocal implements ILogDestination {
   private oraInstance: Ora;
@@ -16,8 +12,8 @@ export class DestinationLocal implements ILogDestination {
    * handles a log according to the smartlog standard
    * @param logPackage
    */
-  handleLog(logPackage: ILogPackage) {
-    this.logToConsole(this.parseLog(logPackage.message));
+  public handleLog(logPackage: ILogPackage) {
+    this.logToConsole(logPackage);
   }
 
   get ora(): Ora {
@@ -28,30 +24,11 @@ export class DestinationLocal implements ILogDestination {
   }
 
   /**
-   * parse logs for display
-   */
-  private parseLog = (stringToParseArg: string): IBeautyLogObject => {
-    const parseLogRegex = /^(success|ok|info|warn|error):\s(.*)/;
-    const regexResult = parseLogRegex.exec(stringToParseArg);
-    if (regexResult && regexResult.length === 3) {
-      return {
-        logType: regexResult[1],
-        logString: regexResult[2]
-      };
-    } else {
-      return {
-        logType: 'log',
-        logString: stringToParseArg
-      };
-    }
-  };
-
-  /**
    * creates a new empty line
    * @param linesArg
    * @returns void
    */
-  newLine(linesArg: number = 1) {
+  public newLine(linesArg: number = 1) {
     for (let i = 0; i < linesArg; i++) {
       console.log('\n');
     }
@@ -60,7 +37,7 @@ export class DestinationLocal implements ILogDestination {
   /**
    * logs a reduced log that only logs changes of consequential log messages
    */
-  logReduced(logTextArg: string, repeatEveryTimesArg: number = 0) {
+  public logReduced(logTextArg: string, repeatEveryTimesArg: number = 0) {
     if (
       logTextArg === this.previousMessage &&
       (repeatEveryTimesArg === 0 || this.sameMessageCounter !== repeatEveryTimesArg)
@@ -70,8 +47,17 @@ export class DestinationLocal implements ILogDestination {
       this.sameMessageCounter = 0;
       this.previousMessage = logTextArg;
       this.logToConsole({
-        logType: 'log',
-        logString: logTextArg
+        type: 'log',
+        level: 'info',
+        context: {
+          company: 'undefined',
+          companyunit: 'undefined',
+          containerName: 'undefined',
+          environment: 'test',
+          runtime: 'node',
+          zone: 'undefined'
+        },
+        message: logTextArg
       });
     }
   }
@@ -79,47 +65,16 @@ export class DestinationLocal implements ILogDestination {
   private sameMessageCounter: number = 0;
 
   // default logging
-  logToConsole(beautlogObject: IBeautyLogObject) {
-    let { logType, logString } = beautlogObject;
+  logToConsole(logPackageArg: ILogPackage) {
+    let logString: string;
     try {
-      switch (logType) {
-        case 'dir':
-          logString = this.localBl.dirPrefix + plugins.beautycolor.coloredString(logString, 'blue');
-          break;
-        case 'error':
-          logString =
-            this.localBl.errorPrefix + plugins.beautycolor.coloredString(logString, 'red');
-          break;
-        case 'info':
-          logString =
-            this.localBl.infoPrefix + plugins.beautycolor.coloredString(logString, 'blue');
-          break;
-        case 'normal':
-          logString = this.localBl.logPrefix + plugins.beautycolor.coloredString(logString, 'cyan');
-          break;
-        case 'note':
-          logString =
-            this.localBl.notePrefix + plugins.beautycolor.coloredString(logString, 'pink');
-          break;
-        case 'ok':
-          logString = this.localBl.okPrefix + plugins.beautycolor.coloredString(logString, 'green');
-          break;
-        case 'success':
-          logString =
-            this.localBl.successPrefix + plugins.beautycolor.coloredString(logString, 'green');
-          break;
-        case 'warn':
-          logString =
-            this.localBl.warnPrefix + plugins.beautycolor.coloredString(logString, 'orange');
-          break;
-        case 'log':
-          logString = this.localBl.logPrefix + plugins.beautycolor.coloredString(logString, 'cyan');
-          break;
-        default:
-          plugins.beautycolor.coloredString(logString, 'blue');
-          console.log('unknown logType for "' + logString + '"');
-          break;
-      }
+      logString =
+        this.localBl[logPackageArg.level].prefix +
+        plugins.consolecolor.coloredString(
+          logPackageArg.message,
+          this.localBl[logPackageArg.level].textColor
+        );
+
       if (this.ora.state === 'running') {
         this.ora.pause();
       }
@@ -136,35 +91,57 @@ export class DestinationLocal implements ILogDestination {
     }
   }
 
-  private localBl = {
-    dirPrefix: plugins.beautycolor.coloredString(' DIR ', 'white', 'blue') + ' ',
-    errorPrefix:
-      plugins.beautycolor.coloredString(' ', 'red', 'red') +
-      plugins.beautycolor.coloredString(' ERROR!  ', 'red', 'black') +
-      ' ',
-    infoPrefix:
-      plugins.beautycolor.coloredString(' ', 'blue', 'blue') +
-      plugins.beautycolor.coloredString(' INFO: ', 'blue', 'black') +
-      ' ',
-    logPrefix:
-      plugins.beautycolor.coloredString(' ', 'white', 'cyan') +
-      plugins.beautycolor.coloredString(' LOG: ', 'cyan', 'black') +
-      ' ',
-    notePrefix:
-      plugins.beautycolor.coloredString(' ', 'pink', 'pink') +
-      plugins.beautycolor.coloredString(' NOTE -> ', 'pink', 'black') +
-      ' ',
-    okPrefix:
-      plugins.beautycolor.coloredString(' ', 'green', 'green') +
-      plugins.beautycolor.coloredString(' OK! ', 'green', 'black') +
-      ' ',
-    successPrefix:
-      plugins.beautycolor.coloredString(' ', 'green', 'green') +
-      plugins.beautycolor.coloredString(' SUCCESS! ', 'green', 'black') +
-      ' ',
-    warnPrefix:
-      plugins.beautycolor.coloredString(' ', 'orange', 'orange') +
-      plugins.beautycolor.coloredString(' WARN: -> ', 'orange', 'black') +
-      ' '
+  private localBl: {
+    [key: string]: {
+      prefix: string;
+      textColor: TColorName;
+    };
+  } = {
+    silly: {
+      prefix: plugins.consolecolor.coloredString(' silly ', 'white', 'blue') + ' ',
+      textColor: 'blue'
+    },
+    error: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'red', 'red') +
+        plugins.consolecolor.coloredString(' ERROR!  ', 'red', 'black') +
+        ' ',
+      textColor: 'red'
+    },
+    info: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'blue', 'blue') +
+        plugins.consolecolor.coloredString(' info: ', 'blue', 'black') +
+        ' ',
+      textColor: 'white'
+    },
+    note: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'pink', 'pink') +
+        plugins.consolecolor.coloredString(' note -> ', 'pink', 'black') +
+        ' ',
+      textColor: 'pink'
+    },
+    ok: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'green', 'green') +
+        plugins.consolecolor.coloredString(' ok ', 'green', 'black') +
+        ' ',
+      textColor: 'green'
+    },
+    success: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'green', 'green') +
+        plugins.consolecolor.coloredString(' SUCCESS! ', 'green', 'black') +
+        ' ',
+      textColor: 'green'
+    },
+    warn: {
+      prefix:
+        plugins.consolecolor.coloredString(' ', 'orange', 'orange') +
+        plugins.consolecolor.coloredString(' WARN -> ', 'orange', 'black') +
+        ' ',
+      textColor: 'orange'
+    }
   };
 }

@@ -1,11 +1,8 @@
-import { tap, expect } from 'tapbundle';
-import * as smartdelay from 'smartdelay';
-
-import * as qenv from 'qenv';
-let testQenv = new qenv.Qenv(process.cwd(), process.cwd() + '/.nogit');
+import { tap, expect } from '@pushrocks/tapbundle';
+import * as smartdelay from '@pushrocks/smartdelay';
 
 import smartlogDesinationLocal = require('../ts/index');
-import { ILogContext } from 'smartlog-interfaces';
+import { ILogContext } from '@pushrocks/smartlog-interfaces';
 
 let testLogContext: ILogContext = {
   company: 'Lossless GmbH',
@@ -14,29 +11,22 @@ let testLogContext: ILogContext = {
   environment: 'staging',
   runtime: 'node',
   zone: 'shipzone'
-}
+};
 
 let testLocalInstance: smartlogDesinationLocal.DestinationLocal;
 
 tap.test('should create a valid instance of DestinationLocal', async () => {
-  testLocalInstance = new smartlogDesinationLocal.DestinationLocal()
+  testLocalInstance = new smartlogDesinationLocal.DestinationLocal();
   expect(testLocalInstance).to.be.instanceof(smartlogDesinationLocal.DestinationLocal);
-})
+});
 
 tap.test('.log(message) should print a blue Dir message', async () => {
   testLocalInstance.handleLog({
-    logLevel: 'info',
-    logContext: testLogContext,
+    type: 'log',
+    level: 'info',
+    context: testLogContext,
     message: 'this is a info log message'
   });
-});
-
-tap.test('.figlet should print nice fonts to console in yellow', async () => {
-  testLocalInstance.figlet('Async!', { font: 'Star Wars', color: 'orange' });
-});
-
-tap.test('.figletSync should print nice fonts to console in yellow', async () => {
-  testLocalInstance.figletSync('Sync!', { font: 'Star Wars', color: 'blue' });
 });
 
 tap.test('.logReduced(message) should only log two messages', async () => {

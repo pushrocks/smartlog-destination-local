@@ -46,7 +46,7 @@ export class Ora {
     this._oraObject.clear();
     this.state = 'stopped';
   }
-  
+
   pause() {
     this._oraObject.stop();
     this.state = 'paused';

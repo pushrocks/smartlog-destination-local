@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(tsrun test/test.ts)",
-    "build": "(npmts)"
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "repository": {
     "type": "git",
@@ -26,20 +26,21 @@
   },
   "homepage": "https://gitlab.com/pushrocks/beautylog",
   "dependencies": {
-    "@types/lodash": "^4.14.104",
-    "beautycolor": "^1.0.11",
-    "figlet": "^1.2.0",
-    "lodash": "^4.17.5",
-    "ora": "^2.0.0",
-    "smartenv": "^4.0.3",
-    "smartlog-interfaces": "^1.0.8",
-    "smartq": "^1.1.6"
+    "@pushrocks/consolecolor": "^2.0.1",
+    "@pushrocks/smartlog-interfaces": "^2.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@types/lodash": "^4.14.117",
+    "ora": "^3.0.0",
+    "smartenv": "^4.0.3"
   },
   "devDependencies": {
-    "@gitzone/tsrun": "^1.1.1",
-    "@types/node": "^10.5.1",
-    "qenv": "^1.1.7",
-    "smartdelay": "^1.0.4",
-    "tapbundle": "^2.0.2"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.13",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/smartdelay": "^2.0.2",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.12.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0"
   }
 }

@@ -43,19 +43,4 @@ tap.test('.newLine(number) create specified amount of new lines', async () => {
   testLocalInstance.newLine(1);
 });
 
-tap.test('.ora(text,color) should display, update, and end a message', async () => {
-  testLocalInstance.ora.start('This is a test text', 'green');
-  await smartdelay.delayFor(2000);
-  testLocalInstance.ora.text('updated text!');
-  await smartdelay.delayFor(2000);
-  await smartdelay.delayFor(2000);
-  testLocalInstance.ora.stop();
-});
-
-tap.test('.ora(text,color) should display an error message when ended with error', async () => {
-  testLocalInstance.ora.start('This is another test text', 'green');
-  await smartdelay.delayFor(2000);
-  testLocalInstance.ora.stop();
-});
-
 tap.start();

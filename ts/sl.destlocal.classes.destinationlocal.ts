@@ -2,11 +2,9 @@ import * as plugins from './sl.destlocal.plugins';
 import { ILogDestination, ILogPackage, TLogLevel } from '@pushrocks/smartlog-interfaces';
 
 // other beautylog classes
-import { Ora } from './sl.destlocal.classes.ora';
 import { TColorName } from '@pushrocks/consolecolor';
 
 export class DestinationLocal implements ILogDestination {
-  private oraInstance: Ora;
 
   /**
    * handles a log according to the smartlog standard
@@ -14,13 +12,6 @@ export class DestinationLocal implements ILogDestination {
    */
   public handleLog(logPackage: ILogPackage) {
     this.logToConsole(logPackage);
-  }
-
-  get ora(): Ora {
-    if (!this.oraInstance) {
-      this.oraInstance = new Ora(this);
-    }
-    return this.oraInstance;
   }
 
   /**
@@ -66,7 +57,7 @@ export class DestinationLocal implements ILogDestination {
   private sameMessageCounter: number = 0;
 
   // default logging
-  logToConsole(logPackageArg: ILogPackage) {
+  private logToConsole(logPackageArg: ILogPackage) {
     let logString: string;
     try {
       logString =
@@ -75,14 +66,7 @@ export class DestinationLocal implements ILogDestination {
           logPackageArg.message,
           this.localBl[logPackageArg.level].textColor
         );
-
-      if (this.ora.state === 'running') {
-        this.ora.pause();
-      }
       console.log(logString);
-      if (this.ora.state === 'paused') {
-        this.ora.start();
-      }
       return true;
     } catch (error) {
       console.log(

@@ -2,5 +2,15 @@
   "npmci": {
     "globalNpmTools": [],
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartlog-destination-local",
+      "shortDescription": "a smartlog destination targeting the local console",
+      "npmPackagename": "@pushrocks/smartlog-destination-local",
+      "license": "MIT"
+    }
   }
 }

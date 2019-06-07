@@ -28,8 +28,7 @@
   "dependencies": {
     "@pushrocks/consolecolor": "^2.0.1",
     "@pushrocks/smartlog-interfaces": "^2.0.2",
-    "@pushrocks/smartpromise": "^2.0.5",
-    "ora": "^3.0.0"
+    "@pushrocks/smartpromise": "^2.0.5"
   },
   "devDependencies": {
     "@gitzone/tsbuild": "^2.0.22",
@@ -40,5 +39,15 @@
     "@types/node": "^10.12.2",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0"
-  }
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

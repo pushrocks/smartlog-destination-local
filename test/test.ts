@@ -1,5 +1,4 @@
 import { tap, expect } from '@pushrocks/tapbundle';
-import * as smartdelay from '@pushrocks/smartdelay';
 
 import smartlogDesinationLocal = require('../ts/index');
 import { ILogContext } from '@pushrocks/smartlog-interfaces';

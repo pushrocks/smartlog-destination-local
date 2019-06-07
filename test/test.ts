@@ -3,7 +3,7 @@ import { tap, expect } from '@pushrocks/tapbundle';
 import smartlogDesinationLocal = require('../ts/index');
 import { ILogContext } from '@pushrocks/smartlog-interfaces';
 
-let testLogContext: ILogContext = {
+const testLogContext: ILogContext = {
   company: 'Lossless GmbH',
   companyunit: 'Lossless.Cloud',
   containerName: 'gitlabci',

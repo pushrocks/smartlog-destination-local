@@ -3,11 +3,11 @@
   "private": false,
   "version": "8.0.4",
   "description": "a smartlog destination targeting the local console",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist_ts/index.js",
+  "typings": "dist_ts/index.d.ts",
   "scripts": {
     "test": "(tstest test/)",
-    "build": "(tsbuild)"
+    "build": "(tsbuild --web)"
   },
   "repository": {
     "type": "git",

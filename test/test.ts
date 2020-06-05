@@ -25,7 +25,8 @@ tap.test('.log(message) should print a blue Dir message', async () => {
     type: 'log',
     level: 'info',
     context: testLogContext,
-    message: 'this is a info log message'
+    message: 'this is a info log message',
+    correlationId: '123'
   });
 });
 

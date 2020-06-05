@@ -49,7 +49,8 @@ export class DestinationLocal implements ILogDestination {
           runtime: 'node',
           zone: 'undefined'
         },
-        message: logTextArg
+        message: logTextArg,
+        correlationId: 'n/a'
       });
     }
   }

@@ -5,7 +5,6 @@ import { ILogDestination, ILogPackage, TLogLevel } from '@pushrocks/smartlog-int
 import { TColorName } from '@pushrocks/consolecolor';
 
 export class DestinationLocal implements ILogDestination {
-
   /**
    * handles a log according to the smartlog standard
    * @param logPackage
@@ -47,10 +46,13 @@ export class DestinationLocal implements ILogDestination {
           containerName: 'undefined',
           environment: 'test',
           runtime: 'node',
-          zone: 'undefined'
+          zone: 'undefined',
         },
         message: logTextArg,
-        correlationId: 'n/a'
+        correlation: {
+          id: 'none',
+          type: 'none',
+        },
       });
     }
   }
@@ -85,49 +87,49 @@ export class DestinationLocal implements ILogDestination {
   } = {
     silly: {
       prefix: plugins.consolecolor.coloredString(' silly ', 'white', 'blue') + ' ',
-      textColor: 'blue'
+      textColor: 'blue',
     },
     error: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'red', 'red') +
         plugins.consolecolor.coloredString(' ERROR!  ', 'red', 'black') +
         ' ',
-      textColor: 'red'
+      textColor: 'red',
     },
     info: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'blue', 'blue') +
         plugins.consolecolor.coloredString(' info: ', 'blue', 'black') +
         ' ',
-      textColor: 'white'
+      textColor: 'white',
     },
     note: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'pink', 'pink') +
         plugins.consolecolor.coloredString(' note -> ', 'pink', 'black') +
         ' ',
-      textColor: 'pink'
+      textColor: 'pink',
     },
     ok: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'green', 'green') +
         plugins.consolecolor.coloredString(' ok ', 'green', 'black') +
         ' ',
-      textColor: 'green'
+      textColor: 'green',
     },
     success: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'green', 'green') +
         plugins.consolecolor.coloredString(' SUCCESS! ', 'green', 'black') +
         ' ',
-      textColor: 'green'
+      textColor: 'green',
     },
     warn: {
       prefix:
         plugins.consolecolor.coloredString(' ', 'orange', 'orange') +
         plugins.consolecolor.coloredString(' WARN -> ', 'orange', 'black') +
         ' ',
-      textColor: 'orange'
-    }
+      textColor: 'orange',
+    },
   };
 }

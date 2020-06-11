@@ -9,7 +9,7 @@ export class DestinationLocal implements ILogDestination {
    * handles a log according to the smartlog standard
    * @param logPackage
    */
-  public handleLog(logPackage: ILogPackage) {
+  public async handleLog(logPackage: ILogPackage) {
     this.logToConsole(logPackage);
   }
 
